@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import cn from 'classnames';
 
 import { useTheme } from './theme/useTheme';
 
@@ -12,7 +13,7 @@ export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={cn('app', { hovered: true, selected: false }, [theme])}>
       <button onClick={toggleTheme}>Toggle Theme</button>
       <Link to="/">Главная</Link>
       <Link to="/about">О Сайте</Link>
