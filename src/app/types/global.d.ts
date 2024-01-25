@@ -5,3 +5,7 @@ declare module '*.scss' {
   const classNames: IClassNames;
   export = classNames;
 }
+
+declare type FCC<T = unknown> = import('react').FC<
+  import('react').PropsWithChildren & T
+>;
