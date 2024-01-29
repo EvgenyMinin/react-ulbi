@@ -19,3 +19,5 @@ declare module '*.svg' {
 declare type FCC<T = unknown> = import('react').FC<
   import('react').PropsWithChildren & T
 >;
+
+declare const __IS_DEV__: boolean;

@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import cn from 'classnames';
 
 import { useTheme } from 'app/providers/ThemeProvider';
@@ -14,11 +16,13 @@ export const App = () => {
 
   return (
     <div className={cn('app', { hovered: true, selected: false }, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        <AppRouter />
-      </div>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   );
 };
