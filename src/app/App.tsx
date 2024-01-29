@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { useTheme } from 'app/providers/ThemeProvider';
 
 import { Navbar } from 'widgets/navbar';
+import { Sidebar } from 'widgets/sidebar';
 
 import { AppRouter } from './providers/router';
 
@@ -14,8 +15,10 @@ export const App = () => {
   return (
     <div className={cn('app', { hovered: true, selected: false }, [theme])}>
       <Navbar />
-
-      <AppRouter />
+      <div className="content-page">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
