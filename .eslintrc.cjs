@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'i18next'],
   extends: [
     'airbnb-base',
     'airbnb-typescript',
@@ -11,6 +11,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
+    'plugin:i18next/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
