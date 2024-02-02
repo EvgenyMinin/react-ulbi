@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
 
 import cn from 'classnames';
 
@@ -13,12 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: EThemeButton;
 }
 
-export const Button: FCC<ButtonProps> = ({
-  children,
-  className,
-  theme,
-  ...props
-}) => (
+export const Button: FC<ButtonProps> = ({ children, className, theme, ...props }) => (
   <button className={cn(styles.button, {}, [className, theme])} {...props}>
     {children}
   </button>
