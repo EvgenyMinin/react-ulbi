@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2020: true, jest: true },
   plugins: ['@typescript-eslint', 'i18next'],
   extends: [
     'airbnb-base',
