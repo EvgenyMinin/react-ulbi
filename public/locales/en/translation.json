@@ -1,3 +1,6 @@
 {
-  "lang": "EN"
+  "lang": "EN",
+  "errorPage": "Something went wrong",
+  "refreshPage": "Refresh",
+  "showError": "Show error"
 }
