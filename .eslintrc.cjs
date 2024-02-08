@@ -19,6 +19,14 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
   settings: {
     'import/resolver': {
       alias: [
@@ -43,6 +51,10 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'max-lines': ['error', 200],
     'max-depth': ['error', 4],
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: true, optionalDependencies: false, peerDependencies: false },
+    ],
     'no-unused-vars': [
       'error',
       {
