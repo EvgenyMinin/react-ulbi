@@ -43,6 +43,10 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'max-lines': ['error', 200],
     'max-depth': ['error', 4],
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: true, optionalDependencies: false, peerDependencies: false },
+    ],
     'no-unused-vars': [
       'error',
       {

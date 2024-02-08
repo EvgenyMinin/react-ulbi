@@ -13,7 +13,10 @@ export const Sidebar = () => {
   };
 
   return (
-    <div className={cn(styles.sidebar, { [styles.collapsed]: collapsed }, [])}>
+    <div
+      className={cn(styles.sidebar, { [styles.collapsed]: collapsed }, [])}
+      data-testid='sidebar'
+    >
       <button onClick={handleToggle}>toggle</button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
