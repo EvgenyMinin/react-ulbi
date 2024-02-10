@@ -2,17 +2,7 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true, jest: true },
   plugins: ['@typescript-eslint', 'i18next'],
-  extends: [
-    'airbnb-base',
-    'airbnb-typescript',
-    'airbnb-typescript',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'plugin:i18next/recommended',
-  ],
+  extends: ['airbnb-base', 'airbnb-typescript', 'airbnb-typescript', 'eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'plugin:react/recommended', 'plugin:prettier/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
