@@ -1,6 +1,6 @@
 import { RuleSetRule } from 'webpack';
 
-import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildCssLoader } from './loaders';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
