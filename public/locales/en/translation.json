@@ -2,5 +2,6 @@
   "lang": "EN",
   "errorPage": "Something went wrong",
   "refreshPage": "Refresh",
-  "showError": "Show error"
+  "showError": "Show error",
+  "toggle": "Toggle"
 }

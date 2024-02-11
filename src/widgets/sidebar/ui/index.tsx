@@ -19,7 +19,7 @@ export const Sidebar = () => {
       className={cn(styles.sidebar, { [styles.collapsed]: collapsed }, [])}
       data-testid='sidebar'
     >
-      <button onClick={handleToggle}>{t('lang')}</button>
+      <button onClick={handleToggle}>{t('toggle')}</button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
         <LangSwitcher />
