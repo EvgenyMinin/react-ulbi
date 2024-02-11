@@ -24,11 +24,6 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     new DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
     }),
-
-    new HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
 
   if (isDev) {
