@@ -3,3 +3,5 @@ node_modules
 /build
 coverage
 /storybook-static
+.loki/report.html
+.loki/report.json

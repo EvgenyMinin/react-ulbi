@@ -17,7 +17,6 @@ describe('Sidebar works correctly', () => {
     const toggleBtn = screen.getByTestId('toggle-sidebar');
     fireEvent.click(toggleBtn);
 
-    screen.debug();
     const sidebar = screen.getByTestId('sidebar');
     expect(sidebar).toHaveClass('collapsed');
   });
