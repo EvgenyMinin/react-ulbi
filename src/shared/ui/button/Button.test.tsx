@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Button, EThemeButton } from '.';
+import { Button, EButtonTheme } from '.';
 
 describe('Button works correctly', () => {
   it('Can render button', () => {
@@ -10,7 +10,7 @@ describe('Button works correctly', () => {
   });
 
   it('Can render clear button', () => {
-    render(<Button theme={EThemeButton.CLEAR}>Test</Button>);
+    render(<Button theme={EButtonTheme.CLEAR}>Test</Button>);
     const button = screen.getByRole('button', { name: 'Test' });
     expect(button).toHaveClass('clear');
   });
