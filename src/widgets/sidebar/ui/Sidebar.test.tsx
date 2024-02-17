@@ -14,7 +14,7 @@ describe('Sidebar works correctly', () => {
   it('Can sidebar toggle', () => {
     renderWithTranslation(<Sidebar />);
 
-    const toggleBtn = screen.getByRole('button', { name: 'toggle' });
+    const toggleBtn = screen.getByTestId('sidebar');
     fireEvent.click(toggleBtn);
 
     const sidebar = screen.getByTestId('sidebar');

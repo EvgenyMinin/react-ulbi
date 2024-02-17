@@ -2,10 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 32px 0;
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
   transition: width 0.2s;
+  position: relative;
 }
 
 .collapsed {
@@ -16,4 +18,34 @@
   display: flex;
   justify-content: center;
   gap: 16px;
+}
+
+.collapseButton {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  color: var(--inverted-primary-color);
 }

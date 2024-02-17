@@ -4,18 +4,42 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-export enum EThemeButton {
+export enum EButtonTheme {
   CLEAR = 'clear',
   OUTLINE = 'outline',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'backgroundInverted',
+}
+
+export enum EButtonSize {
+  XL = 'size_xl',
+  L = 'size_l',
+  M = 'size_m',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: EThemeButton;
+  theme?: EButtonTheme;
+  isSquare?: boolean;
+  size?: EButtonSize;
 }
 
-export const Button: FC<ButtonProps> = ({ children, className, theme, ...props }) => (
-  <button className={cn(styles.button, {}, [className, styles[theme]])} {...props}>
+export const Button: FC<ButtonProps> = ({
+  children,
+  className,
+  theme,
+  isSquare,
+  size = EButtonSize.L,
+  ...props
+}) => (
+  <button
+    className={cn(styles.button, { [styles.square]: isSquare }, [
+      className,
+      styles[theme],
+      styles[size],
+    ])}
+    {...props}
+  >
     {children}
   </button>
 );

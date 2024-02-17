@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Button, EThemeButton } from 'shared/ui';
+import { Button, EButtonTheme } from 'shared/ui';
 
 export const LangSwitcher = () => {
   const { t, i18n } = useTranslation();
@@ -9,7 +9,7 @@ export const LangSwitcher = () => {
   };
 
   return (
-    <Button theme={EThemeButton.CLEAR} onClick={handleToggleTranslation}>
+    <Button theme={EButtonTheme.CLEAR} onClick={handleToggleTranslation}>
       {t('lang')}
     </Button>
   );
