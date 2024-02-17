@@ -64,6 +64,7 @@ export const Sidebar = () => {
         theme={EButtonTheme.BACKGROUND_INVERTED}
         isSquare
         size={EButtonSize.L}
+        data-testid='toggle-sidebar'
       >
         {collapsed ? '>' : '<'}
       </Button>
