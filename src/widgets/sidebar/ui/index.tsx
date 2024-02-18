@@ -18,7 +18,7 @@ import {
 import styles from './styles.module.scss';
 
 export const Sidebar = () => {
-  const { t } = useTranslation('navbar');
+  const { t } = useTranslation('sidebar');
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const handleToggle = () => {
