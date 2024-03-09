@@ -1,7 +1,9 @@
 import { Suspense } from 'react';
 
-import { useTheme } from 'app/providers/ThemeProvider';
 import cn from 'classnames';
+
+import { useTheme } from 'app/providers/ThemeProvider';
+
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/sidebar';
 

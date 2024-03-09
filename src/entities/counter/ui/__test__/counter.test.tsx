@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/dom';
 
-import { componentRender } from '@/shared/lib';
+import { componentRender } from 'shared/lib';
 
 import { Counter } from '..';
 

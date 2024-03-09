@@ -5,7 +5,7 @@ import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { RoutePath } from '@/shared/config';
+import { RoutePath } from 'shared/config';
 import {
   AppLink,
   AppLinkTheme,
@@ -14,7 +14,7 @@ import {
   EButtonTheme,
   LangSwitcher,
   ThemeSwitcher,
-} from '@/shared/ui';
+} from 'shared/ui';
 
 import styles from './styles.module.scss';
 

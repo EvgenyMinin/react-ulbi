@@ -28,23 +28,6 @@ module.exports = {
       },
     },
   ],
-  settings: {
-    'import/resolver': {
-      alias: [
-        ['@/src', './src'],
-        ['@/app', './app'],
-        ['@/modules', './modules'],
-        ['@/components', './components'],
-        ['@/services', './services'],
-        ['@/shared', './shared'],
-        ['@/locales', './locales'],
-        ['@/test-utils', './test-utils'],
-      ],
-      node: {
-        extensions: ['.ts', '.tsx', '.js'],
-      },
-    },
-  },
   rules: {
     'no-param-reassign': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -105,42 +88,42 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: '@/app/**',
+            pattern: 'app/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/test-utils',
+            pattern: 'test-utils',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/processes/**',
+            pattern: 'processes/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/pages/**',
+            pattern: 'pages/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/widgets/**',
+            pattern: 'widgets/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/features/**',
+            pattern: 'features/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/entities/**',
+            pattern: 'entities/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/shared/**',
+            pattern: 'shared/**',
             group: 'type',
             position: 'after',
           },

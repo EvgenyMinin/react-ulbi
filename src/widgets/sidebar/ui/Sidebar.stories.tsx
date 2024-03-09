@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ETheme } from '@/app/providers/ThemeProvider';
+import { ETheme } from 'app/providers/ThemeProvider';
 
-import { ThemeDecorator } from '@/shared/config/storybook';
+import { ThemeDecorator } from 'shared/config/storybook';
 
 import { Sidebar } from '.';
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button } from '@/shared/ui';
+import { Button } from 'shared/ui';
 
 import { counterSelectors, counterSlice } from '../model';
 

@@ -1,14 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/app/*": ["app/*"],
-      "@/shared/*": ["shared/*"],
-      "@/entities/*": ["entities/*"],
-      "@/features/*": ["features/*"],
-      "@/pages/*": ["pages/*"],
-      "@/processes/*": ["processes/*"],
-      "@/widgets/*": ["widgets/*"],
       "*": ["./src/*"],
     },
     "outDir": "./dist/",
