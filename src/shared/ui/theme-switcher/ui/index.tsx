@@ -1,9 +1,11 @@
 import { FC } from 'react';
 
-import { ETheme, useTheme } from 'app/providers/ThemeProvider';
 import cn from 'classnames';
-import ThemeIcon from 'shared/assets/icons/theme.svg';
-import { Button, EButtonTheme } from 'shared/ui';
+
+import { ETheme, useTheme } from '@/app/providers/ThemeProvider';
+
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import { Button, EButtonTheme } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 

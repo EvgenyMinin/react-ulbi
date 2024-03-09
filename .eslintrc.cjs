@@ -110,12 +110,12 @@ module.exports = {
             position: 'after',
           },
           {
-            pattern: '@/modules/**',
+            pattern: '@/test-utils',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/services/**',
+            pattern: '@/processes/**',
             group: 'type',
             position: 'after',
           },
@@ -125,12 +125,17 @@ module.exports = {
             position: 'after',
           },
           {
-            pattern: '@/components/**',
+            pattern: '@/widgets/**',
             group: 'type',
             position: 'after',
           },
           {
-            pattern: '@/test-utils',
+            pattern: '@/features/**',
+            group: 'type',
+            position: 'after',
+          },
+          {
+            pattern: '@/entities/**',
             group: 'type',
             position: 'after',
           },

@@ -1,27 +1,25 @@
 import { ReactNode } from 'react';
 
 import { render } from '@testing-library/react';
-import { IStateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
-import i18nForTest from 'shared/config/i18n/i18nForTests';
+
+import { IStateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+
+import i18nForTest from '@/shared/config/i18n/i18nForTests';
+
+import { INITIAL_ROUTE, INITIAL_STATE } from './consts';
 
 export interface IComponentRenderOptions {
   route?: string;
   initialState?: IStateSchema;
 }
 
-export const componentRender = (
-  component: ReactNode,
-  options: IComponentRenderOptions = { route: '/' }
-) => {
-  const { route, initialState } = options;
-
-  return render(
-    <StoreProvider initialState={initialState}>
-      <MemoryRouter initialEntries={[route]}>
+export const componentRender = (component: ReactNode, options?: IComponentRenderOptions) =>
+  render(
+    <StoreProvider initialState={options?.initialState ?? INITIAL_STATE}>
+      <MemoryRouter initialEntries={[options?.route ?? INITIAL_ROUTE]}>
         <I18nextProvider i18n={i18nForTest}>{component}</I18nextProvider>
       </MemoryRouter>
     </StoreProvider>
   );
-};

@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
+      "@/app/*": ["app/*"],
+      "@/shared/*": ["shared/*"],
+      "@/entities/*": ["entities/*"],
+      "@/features/*": ["features/*"],
+      "@/pages/*": ["pages/*"],
+      "@/processes/*": ["processes/*"],
+      "@/widgets/*": ["widgets/*"],
       "*": ["./src/*"],
     },
     "outDir": "./dist/",
@@ -19,5 +26,5 @@
       "module": "CommonJS",
     },
   },
-  // "include": ["./config/jest/setupTests.ts"],
+  "include": ["src", "config", "jest.config.ts", "webpack.config.ts"],
 }

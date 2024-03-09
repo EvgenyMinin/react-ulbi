@@ -1,40 +1,36 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
 import path from 'path';
 
 import type { Config } from 'jest';
 
 const config: Config = {
+  verbose: true,
   clearMocks: true,
   testEnvironment: 'jsdom',
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: ['node_modules'],
+  moduleDirectories: ['node_modules', 'src', 'config'],
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
   // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../',
+  // rootDir: '../../',
   // The glob patterns Jest uses to detect test files
   // testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
-  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-  modulePaths: ['<rootDir>src'],
+  testMatch: ['<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'],
+  modulePaths: ['<rootDir>/src'],
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-    // '@/shared/(.*)': '<rootDir>src/$1',
+    '\\.svg': path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
+    '^@/(.+)': '<rootDir>/src/$1',
   },
   // A set of global variables that need to be available in all test environments
   globals: {

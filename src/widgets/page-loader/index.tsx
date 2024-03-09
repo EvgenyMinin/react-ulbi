@@ -1,4 +1,4 @@
-import { Loader } from 'shared/ui';
+import { Loader } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 
