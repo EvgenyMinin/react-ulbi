@@ -4,6 +4,7 @@ import { cilHome, cilMonitor } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+
 import { RoutePath } from 'shared/config';
 import {
   AppLink,

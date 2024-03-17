@@ -1,4 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
+
 import { componentRender } from 'shared/lib';
 
 import { Sidebar } from '.';
@@ -12,7 +13,7 @@ describe('Sidebar works correctly', () => {
   });
 
   it('Can sidebar toggle', () => {
-    componentRender(<Sidebar />);
+    componentRender(<Sidebar />, { initialState: { counter: { value: 10 } } });
 
     const toggleBtn = screen.getByTestId('toggle-sidebar');
     fireEvent.click(toggleBtn);

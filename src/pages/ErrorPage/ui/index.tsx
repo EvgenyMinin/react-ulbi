@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import { Button } from 'shared/ui';
 
 import styles from './styles.module.scss';

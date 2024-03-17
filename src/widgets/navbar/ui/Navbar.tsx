@@ -2,6 +2,7 @@ import { FC, useReducer } from 'react';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+
 import { Button, EButtonTheme, Modal } from 'shared/ui';
 
 import styles from './Navbar.module.scss';
