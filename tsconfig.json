@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"],
+      "*": ["./src/*"]
     },
     "outDir": "./dist/",
     "noImplicitAny": true,
@@ -12,12 +12,12 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
-    },
+      "module": "CommonJS"
+    }
   },
-  "include": ["src", "config", "jest.config.ts", "webpack.config.ts"],
+  "include": ["src", "config", "jest.config.ts", "webpack.config.ts"]
 }
