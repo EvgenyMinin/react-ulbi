@@ -2,6 +2,8 @@ import { FC, ReactNode, useCallback, useEffect, useReducer, useRef } from 'react
 
 import cn from 'classnames';
 
+import { useTheme } from 'app/providers/ThemeProvider';
+
 import styles from './styles.module.scss';
 import { Portal } from '../portal';
 
@@ -17,6 +19,7 @@ const ANIMATION_DELAY = 300;
 export const Modal: FC<IModalProps> = ({ isOpen, onClose, className, children }) => {
   const [isClosing, toggleClosing] = useReducer(prev => !prev, false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const { theme } = useTheme();
 
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
@@ -59,7 +62,7 @@ export const Modal: FC<IModalProps> = ({ isOpen, onClose, className, children })
 
   return (
     <Portal>
-      <div className={cn(styles.modal, mods, [className])}>
+      <div className={cn(styles.modal, mods, [className, theme])}>
         <div className={styles.overlay} onClick={handleCloseModal}>
           <div className={styles.content} onClick={handleContentClick}>
             {children}
