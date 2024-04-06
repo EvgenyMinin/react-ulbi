@@ -5,7 +5,8 @@ import { componentRender } from 'shared/lib';
 import { Counter } from '..';
 
 describe('Counter works correctly', () => {
-  const render = () => componentRender(<Counter />, { initialState: { counter: { value: 10 } } });
+  const render = () =>
+    componentRender(<Counter />, { initialState: { counter: { value: 10 }, user: {} } });
   it('Can render counter', () => {
     render();
 

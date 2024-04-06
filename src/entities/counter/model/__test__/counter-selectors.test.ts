@@ -5,6 +5,7 @@ import { getCounter, getCounterValue } from '../selectors';
 describe('counter selectors works correctly', () => {
   const state: IStateSchema = {
     counter: { value: 10 },
+    user: {},
   };
 
   it('Should return counter', () => {

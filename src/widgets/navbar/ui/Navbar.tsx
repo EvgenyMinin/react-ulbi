@@ -3,7 +3,9 @@ import { FC, useReducer } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { Button, EButtonTheme, Modal } from 'shared/ui';
+import { LoginModal } from 'features/AuthByUsername';
+
+import { Button, EButtonTheme } from 'shared/ui';
 
 import styles from './Navbar.module.scss';
 
@@ -20,9 +22,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       <Button className={styles.links} theme={EButtonTheme.CLEAR_INVERTED} onClick={toggleOpen}>
         {t('login')}
       </Button>
-      <Modal isOpen={isOpen} onClose={toggleOpen}>
-        <div></div>
-      </Modal>
+      <LoginModal isOpen={isOpen} onClose={toggleOpen} />
     </div>
   );
 };
