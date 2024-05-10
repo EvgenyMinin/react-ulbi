@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { Configuration, RuleSetRule } from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 
 import { buildCssLoader } from '../build/loaders';
 import { BuildPath } from '../build/types/config';
@@ -31,6 +31,12 @@ export default ({ config }: { config: Configuration }) => {
     exclude: /node_modules/,
     use: ['@svgr/webpack'],
   });
+
+  config.plugins.push(
+    new DefinePlugin({
+      IS_DEV: true,
+    })
+  );
 
   return config;
 };
