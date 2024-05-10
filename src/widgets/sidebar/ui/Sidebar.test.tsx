@@ -13,7 +13,7 @@ describe('Sidebar works correctly', () => {
   });
 
   it('Can sidebar toggle', () => {
-    componentRender(<Sidebar />, { initialState: { counter: { value: 10 }, user: {} } });
+    componentRender(<Sidebar />);
 
     const toggleBtn = screen.getByTestId('toggle-sidebar');
     fireEvent.click(toggleBtn);

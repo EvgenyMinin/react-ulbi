@@ -3,5 +3,6 @@
   "errorPage": "Something went wrong",
   "refreshPage": "Refresh",
   "showError": "Show error",
-  "toggle": "Toggle"
+  "toggle": "Toggle",
+  "invalidLogin": "Вы ввели неверный логин иди пароль"
 }

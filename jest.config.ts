@@ -31,6 +31,7 @@ const config: Config = {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
     '^entities/(.+)': '<rootDir>/src/entities/$1',
+    '^features/(.+)': '<rootDir>/src/features/$1',
   },
   // A set of global variables that need to be available in all test environments
   globals: {

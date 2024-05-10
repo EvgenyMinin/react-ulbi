@@ -127,3 +127,12 @@ export const SquareSizeM: Story = {
   },
   decorators: [ThemeDecorator(ETheme.DARK)],
 };
+
+export const DisabledButton: Story = {
+  args: {
+    children: '>',
+    theme: EButtonTheme.OUTLINE,
+    disabled: true,
+  },
+  decorators: [ThemeDecorator(ETheme.DARK)],
+};
