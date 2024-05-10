@@ -5,3 +5,4 @@ export * from './loader';
 export * from './modal';
 export * from './theme-switcher';
 export * from './input';
+export * from './text';

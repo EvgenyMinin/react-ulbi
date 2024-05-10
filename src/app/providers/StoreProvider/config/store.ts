@@ -1,19 +1,32 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+// eslint-disable-next-line @typescript-eslint/no-restricted-imports
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import type { IStateSchema } from './stateSchema';
+import { loginSlice } from 'features/login-by-username';
 
 import { counterSlice } from 'entities/counter';
 import { userSlice } from 'entities/user';
 
-export function createReduxStore(initialState: IStateSchema) {
-  const rootReducers: ReducersMapObject<IStateSchema> = {
-    counter: counterSlice.counterReducer,
-    user: userSlice.reducer,
-  };
+const entities = combineReducers({
+  counter: counterSlice.counterReducer,
+  user: userSlice.reducer,
+});
+const features = combineReducers({
+  loginForm: loginSlice.reducer,
+});
 
-  return configureStore<IStateSchema>({
-    reducer: rootReducers,
-    devTools: IS_DEV,
-    preloadedState: initialState,
-  });
-}
+const rootReducer = combineReducers({
+  entities,
+  features,
+});
+
+export const store = configureStore({
+  reducer: rootReducer,
+  devTools: IS_DEV,
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

@@ -56,6 +56,15 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-explicit-any': 'off',
+    'no-restricted-imports': 'off',
+    '@typescript-eslint/no-restricted-imports': [
+      'warn',
+      {
+        name: 'react-redux',
+        importNames: ['useSelector', 'useDispatch'],
+        message: 'Use typed hooks `useAppDispatch` and `useAppSelector` instead.',
+      },
+    ],
     'react/display-name': 'off',
     'import/extensions': 'off',
     'max-len': [

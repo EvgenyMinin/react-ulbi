@@ -5,13 +5,12 @@ import { componentRender } from 'shared/lib';
 import { Counter } from '..';
 
 describe('Counter works correctly', () => {
-  const render = () =>
-    componentRender(<Counter />, { initialState: { counter: { value: 10 }, user: {} } });
+  const render = () => componentRender(<Counter />);
   it('Can render counter', () => {
     render();
 
     const title = screen.getByTestId('value-title');
-    expect(title).toHaveTextContent('10');
+    expect(title).toHaveTextContent('0');
   });
 
   it('increment', () => {
@@ -20,7 +19,7 @@ describe('Counter works correctly', () => {
     const incrementButton = screen.getByTestId('increment-button');
     fireEvent.click(incrementButton);
     const title = screen.getByTestId('value-title');
-    expect(title).toHaveTextContent('11');
+    expect(title).toHaveTextContent('1');
   });
 
   it('decrement', () => {
@@ -28,7 +27,8 @@ describe('Counter works correctly', () => {
 
     const decrementButton = screen.getByTestId('decrement-button');
     fireEvent.click(decrementButton);
+    fireEvent.click(decrementButton);
     const title = screen.getByTestId('value-title');
-    expect(title).toHaveTextContent('9');
+    expect(title).toHaveTextContent('-1');
   });
 });

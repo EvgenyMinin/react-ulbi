@@ -3,5 +3,6 @@
   "errorPage": "Произошла непредвиденная ошибка",
   "refreshPage": "Обновить страницу",
   "showError": "Показать ошибку",
-  "toggle": "Переключить"
+  "toggle": "Переключить",
+  "invalidLogin": "Invorrect login or password"
 }
