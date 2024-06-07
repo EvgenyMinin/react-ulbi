@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import cn from 'classnames';
 
@@ -9,7 +9,7 @@ import { Button, EButtonTheme } from 'shared/ui';
 
 import styles from './styles.module.scss';
 
-export const ThemeSwitcher: FC = () => {
+export const ThemeSwitcher: FC = memo(() => {
   const { toggleTheme } = useTheme();
 
   return (
@@ -17,4 +17,4 @@ export const ThemeSwitcher: FC = () => {
       <ThemeIcon />
     </Button>
   );
-};
+});

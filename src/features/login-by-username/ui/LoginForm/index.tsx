@@ -10,7 +10,11 @@ import { Button, EButtonTheme, ETextTheme, Input, Text } from 'shared/ui';
 
 import styles from './styles.module.scss';
 
-export const LoginForm = memo(() => {
+export interface LoginFormProps {
+  onSuccess: () => void;
+}
+
+export const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
   const { t } = useTranslation('auth');
   const dispatch = useAppDispatch();
   const usernameValue = useAppSelector(loginSelectors.loginUsernameSelector);
@@ -32,9 +36,15 @@ export const LoginForm = memo(() => {
     [dispatch]
   );
 
-  const handleLogin = useCallback(() => {
-    dispatch(loginServices.loginByUsername({ username: usernameValue, password: passwordValue }));
-  }, [dispatch, passwordValue, usernameValue]);
+  const handleLogin = useCallback(async () => {
+    const result = await dispatch(
+      loginServices.loginByUsername({ username: usernameValue, password: passwordValue })
+    );
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, passwordValue, usernameValue, onSuccess]);
 
   return (
     <div className={styles.loginForm}>
