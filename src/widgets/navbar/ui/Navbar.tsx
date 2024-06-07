@@ -1,4 +1,4 @@
-import { FC, useReducer } from 'react';
+import { memo, useReducer } from 'react';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation('navbar');
 
   const dispatch = useAppDispatch();
@@ -47,4 +47,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       <LoginModal isOpen={isOpen} onClose={toggleOpen} />
     </div>
   );
-};
+});

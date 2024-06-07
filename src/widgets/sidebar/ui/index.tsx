@@ -1,25 +1,14 @@
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
-import { cilHome, cilMonitor } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
-import { useTranslation } from 'react-i18next';
 
-import { RoutePath } from 'shared/config';
-import {
-  AppLink,
-  AppLinkTheme,
-  Button,
-  EButtonSize,
-  EButtonTheme,
-  LangSwitcher,
-  ThemeSwitcher,
-} from 'shared/ui';
+import { Button, EButtonSize, EButtonTheme, LangSwitcher, ThemeSwitcher } from 'shared/ui';
 
+import { SidebarItem } from './sidebar-item';
 import styles from './styles.module.scss';
+import { SidebarItemsList } from '../model/items';
 
-export const Sidebar = () => {
-  const { t } = useTranslation('sidebar');
+export const Sidebar = memo(() => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const handleToggle = () => {
@@ -29,30 +18,22 @@ export const Sidebar = () => {
   const menu = useMemo(() => {
     if (collapsed) {
       return (
-        <div className={styles.iconContainer}>
-          <CIcon icon={cilHome} width={24} className={styles.icon} />
-          <CIcon icon={cilMonitor} width={24} className={styles.icon} />
-        </div>
+        <>
+          {SidebarItemsList.map(item => (
+            <SidebarItem key={item.path} item={item} collapsed />
+          ))}
+        </>
       );
     }
 
     return (
       <>
-        <div className={styles.navItem}>
-          <CIcon icon={cilHome} width={24} className={styles.icon} />
-          <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
-            {t('main')}
-          </AppLink>
-        </div>
-        <div className={styles.navItem}>
-          <CIcon icon={cilMonitor} width={24} className={styles.icon} />
-          <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>
-            {t('about')}
-          </AppLink>
-        </div>
+        {SidebarItemsList.map(item => (
+          <SidebarItem key={item.path} item={item} />
+        ))}
       </>
     );
-  }, [collapsed, t]);
+  }, [collapsed]);
 
   return (
     <div
@@ -77,4 +58,4 @@ export const Sidebar = () => {
       </div>
     </div>
   );
-};
+});

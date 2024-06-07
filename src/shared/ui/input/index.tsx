@@ -53,7 +53,7 @@ export const Input = memo((props: InputProps) => {
       handleFocus();
       ref.current?.focus();
     }
-  }, [autofocus]);
+  }, [autofocus, handleFocus]);
 
   return (
     <div className={cn(styles.inputWrapper, {}, [className])}>
