@@ -20,3 +20,4 @@ declare module '*.svg' {
 declare type FCC<T = unknown> = import('react').FC<import('react').PropsWithChildren & T>;
 
 declare const IS_DEV: boolean;
+declare const API: string;
