@@ -36,6 +36,7 @@ const config: Config = {
   // A set of global variables that need to be available in all test environments
   globals: {
     IS_DEV: true,
+    API: '',
   },
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected

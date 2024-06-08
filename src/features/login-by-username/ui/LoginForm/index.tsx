@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/providers';
 
@@ -17,6 +18,7 @@ export interface LoginFormProps {
 export const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
   const { t } = useTranslation('auth');
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const usernameValue = useAppSelector(loginSelectors.loginUsernameSelector);
   const passwordValue = useAppSelector(loginSelectors.loginPasswordSelector);
   const isLoading = useAppSelector(loginSelectors.loginIsLoadingSelector);
@@ -41,10 +43,12 @@ export const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
       loginServices.loginByUsername({ username: usernameValue, password: passwordValue })
     );
 
+    navigate('/about');
+
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
-  }, [dispatch, passwordValue, usernameValue, onSuccess]);
+  }, [dispatch, passwordValue, usernameValue, onSuccess, navigate]);
 
   return (
     <div className={styles.loginForm}>
