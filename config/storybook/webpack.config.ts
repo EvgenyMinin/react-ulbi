@@ -13,26 +13,29 @@ export default ({ config }: { config: Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  config.resolve.modules.push(paths.src);
-  config.resolve.extensions.push('ts', '.tsx');
-  config.module.rules.push(buildCssLoader(true));
+  config.resolve?.modules?.push(paths.src);
+  config.resolve?.extensions?.push('ts', '.tsx');
+  config.module?.rules?.push(buildCssLoader(true));
 
-  // eslint-disable-next-line no-param-reassign
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
+  if (config.module?.rules) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    config.module.rules = config.module!.rules!.map((rule: RuleSetRule) => {
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
 
-    return rule;
-  });
+      return rule;
+    });
+  }
 
-  config.module.rules.push({
+  config.module?.rules?.push({
     test: /\.svg$/,
     exclude: /node_modules/,
     use: ['@svgr/webpack'],
   });
 
-  config.plugins.push(
+  config.plugins?.push(
     new DefinePlugin({
       IS_DEV: JSON.stringify(true),
       API: JSON.stringify(''),

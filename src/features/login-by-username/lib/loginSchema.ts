@@ -1,6 +1,4 @@
-export interface IError {
-  message: string;
-}
+import { IError } from 'shared/lib';
 
 export interface ILoginSchema {
   username: string;

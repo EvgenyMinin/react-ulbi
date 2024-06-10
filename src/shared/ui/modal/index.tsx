@@ -1,4 +1,13 @@
-import { FC, ReactNode, useCallback, useEffect, useReducer, useRef, useState } from 'react';
+import {
+  FC,
+  MutableRefObject,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from 'react';
 
 import cn from 'classnames';
 
@@ -18,9 +27,9 @@ const ANIMATION_DELAY = 300;
 export const Modal: FC<IModalProps> = ({ isOpen, onClose, className, children, lazy }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isClosing, toggleClosing] = useReducer(prev => !prev, false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-  const mods: Record<string, boolean> = {
+  const mods: Record<string, boolean | undefined> = {
     [styles.opened]: isOpen,
     [styles.closing]: isClosing,
   };

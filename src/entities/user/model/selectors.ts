@@ -7,7 +7,7 @@ import { IUser, IUserSchema } from '../lib';
 
 export const userSelector = (state: RootState): IUserSchema => state.entities.user;
 
-export const userAuthData: Selector<RootState, IUser> = createSelector(
+export const userAuthData: Selector<RootState, IUser | undefined> = createSelector(
   userSelector,
   ({ authData }) => authData
 );

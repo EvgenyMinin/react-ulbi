@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-// eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { AxiosInstance } from 'axios';
+// eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import { loginSlice } from 'features/login-by-username';

@@ -1,8 +1,21 @@
-import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+
+import { useAppDispatch } from 'app/providers';
+
+import { ProfileCard, profileService } from 'entities/profile';
 
 const ProfilePage = () => {
-  const { t } = useTranslation('profile');
-  return <div>{t('profile')}</div>;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(profileService.fetchProfileData());
+  }, [dispatch]);
+
+  return (
+    <div>
+      <ProfileCard />
+    </div>
+  );
 };
 
 export default ProfilePage;
