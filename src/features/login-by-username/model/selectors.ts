@@ -2,7 +2,7 @@ import { Selector, createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from 'app/providers';
 
-import { IError } from '../lib';
+import { IError } from 'shared/lib';
 
 export const getLoginState = (state: RootState) => state.features.loginForm;
 
@@ -21,7 +21,7 @@ export const loginIsLoadingSelector: Selector<RootState, boolean> = createSelect
   ({ isLoading }) => isLoading
 );
 
-export const loginErrorSelector: Selector<RootState, IError> = createSelector(
+export const loginErrorSelector: Selector<RootState, IError | undefined> = createSelector(
   getLoginState,
   ({ error }) => error
 );

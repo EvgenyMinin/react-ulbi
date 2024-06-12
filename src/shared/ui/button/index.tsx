@@ -30,9 +30,9 @@ export const Button = memo((props: ButtonProps) => {
   const {
     children,
     className,
-    theme,
     isSquare,
     disabled,
+    theme = EButtonTheme.OUTLINE,
     size = EButtonSize.L,
     ...otherProps
   } = props;

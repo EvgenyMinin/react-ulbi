@@ -10,9 +10,9 @@ import 'app/styles/index.scss';
 import 'shared/config/i18n/i18n';
 
 const container = document.getElementById('root');
-const root = createRoot(container);
+const root = container ? createRoot(container) : null;
 
-root.render(
+root?.render(
   <StoreProvider>
     <BrowserRouter>
       <ErrorBoundary>

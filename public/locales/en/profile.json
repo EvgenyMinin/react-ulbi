@@ -1,3 +1,6 @@
 {
-  "profile": "Profile"
+  "profile": "Profile",
+  "edit": "Edit",
+  "firstNamePlaceholder": "Your first name",
+  "lastNamePlaceholder": "Your last name"
 }

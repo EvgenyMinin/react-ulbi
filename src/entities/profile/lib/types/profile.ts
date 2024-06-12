@@ -12,8 +12,8 @@ export interface IProfile {
 }
 
 export interface IProfileSchema {
-  data: NonNullable<IProfile>;
   isLoading: boolean;
+  data?: IProfile;
   readonly: boolean;
   error?: string;
 }

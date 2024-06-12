@@ -1,3 +1,6 @@
 {
-  "profile": "Профиль"
+  "profile": "Профиль",
+  "edit": "Редактировать",
+  "firstNamePlaceholder": "Ваше имя",
+  "lastNamePlaceholder": "Ваша фамилия"
 }
