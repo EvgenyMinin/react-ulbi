@@ -11,6 +11,8 @@ import {
 
 import cn from 'classnames';
 
+import { Mods } from 'shared/lib';
+
 import styles from './styles.module.scss';
 import { Portal } from '../portal';
 
@@ -29,7 +31,7 @@ export const Modal: FC<IModalProps> = ({ isOpen, onClose, className, children, l
   const [isClosing, toggleClosing] = useReducer(prev => !prev, false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-  const mods: Record<string, boolean | undefined> = {
+  const mods: Mods = {
     [styles.opened]: isOpen,
     [styles.closing]: isClosing,
   };

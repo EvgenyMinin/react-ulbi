@@ -1,6 +1,16 @@
 {
   "profile": "Профиль",
   "edit": "Редактировать",
+  "decline": "Отменить",
   "firstNamePlaceholder": "Ваше имя",
-  "lastNamePlaceholder": "Ваша фамилия"
+  "lastNamePlaceholder": "Ваша фамилия",
+  "agePlaceholder": "Ваш возраст",
+  "cityPlaceholder": "Ваш город",
+  "usernamePlaceholder": "Ваше имя пользователя",
+  "avatarPlaceholder": "Cсылка на аватар",
+  "serverError": "Произошла ошибка при загрузке профиля",
+  "refreshPage": "Пожалуйста, попробуйте обновить страницу",
+  "currencyLabel": "Выберите валюту",
+  "countryLabel": "Выберите страну",
+  "save": "Сохранить"
 }

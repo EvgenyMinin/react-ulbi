@@ -85,6 +85,7 @@ module.exports = {
     'react/jsx-key': 'error',
     'import/no-cycle': ['error'],
     'import/prefer-default-export': 'off',
+    'no-undef': 'off',
     'import/order': [
       'error',
       {

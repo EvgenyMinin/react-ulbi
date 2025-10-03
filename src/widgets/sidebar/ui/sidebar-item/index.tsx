@@ -15,7 +15,11 @@ type SidebarItemProps = {
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation('sidebar');
-  const { icon, path, text } = item;
+  const { icon, path, text, authOnly } = item;
+
+  if (authOnly) {
+    return null;
+  }
 
   return (
     <AppLink theme={AppLinkTheme.SECONDARY} to={path}>

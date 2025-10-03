@@ -42,6 +42,16 @@ server.get('/profile', (_, res) => {
   return res.status(403).json({ message: 'AUTH ERROR' });
 });
 
+server.post('/profile', (req, res) => {
+  const { body } = req;
+
+  if (body) {
+    return res.json(body);
+  }
+
+  return res.status(403).json({ message: 'AUTH ERROR' });
+});
+
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(403).json({ message: 'AUTH ERROR' });

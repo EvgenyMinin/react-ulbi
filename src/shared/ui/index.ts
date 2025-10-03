@@ -6,3 +6,5 @@ export * from './modal';
 export * from './theme-switcher';
 export * from './input';
 export * from './text';
+export * from './avatar';
+export * from './select';
