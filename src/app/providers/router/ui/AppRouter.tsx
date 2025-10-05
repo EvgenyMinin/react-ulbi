@@ -14,7 +14,14 @@ export const AppRouter = () => {
   const isAuth = useAppSelector(userSelectors.userAuthData);
 
   const routes = useMemo(
-    () => Object.values(routeConfig).filter(({ authOnly }) => !authOnly && !isAuth),
+    () =>
+      Object.values(routeConfig).filter(({ authOnly }) => {
+        if (authOnly && !isAuth) {
+          return false;
+        }
+
+        return true;
+      }),
     [isAuth]
   );
 

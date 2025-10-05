@@ -1,7 +1,7 @@
-import { ECurrency, TSelectOption } from 'shared/lib';
+import { TSelectOption } from 'shared/lib';
 
 export const CURRENCIES: TSelectOption[] = [
-  { value: ECurrency.RUB, content: ECurrency.RUB },
-  { value: ECurrency.USD, content: ECurrency.USD },
-  { value: ECurrency.EUR, content: ECurrency.EUR },
+  { value: 'RUB', content: 'RUB' },
+  { value: 'USD', content: 'USD' },
+  { value: 'EUR', content: 'EUR' },
 ];

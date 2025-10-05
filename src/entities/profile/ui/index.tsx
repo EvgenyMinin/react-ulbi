@@ -17,7 +17,7 @@ interface ProfileCardProps {
   readonly?: boolean;
   onChangeFirstName?: (value?: string) => void;
   onChangeLastName?: (value?: string) => void;
-  onChangeAge?: (value?: string) => void;
+  onChangeAge?: (value: string) => void;
   onChangeCity?: (value?: string) => void;
   onChangeUsername?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
@@ -89,9 +89,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
           onChange={onChangeLastName}
         />
         <Input
-          value={data?.age}
+          value={data?.age?.toString()}
           readOnly={readonly}
           placeholder={t('agePlaceholder')}
+          type='number'
           onChange={onChangeAge}
         />
         <Input

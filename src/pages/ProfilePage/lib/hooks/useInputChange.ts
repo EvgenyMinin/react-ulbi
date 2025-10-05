@@ -10,7 +10,7 @@ import { ECountry, ECurrency } from 'shared/lib';
 interface IUseInputChange {
   handleChangeFirstName: (value?: string) => void;
   handleChangeLastName: (value?: string) => void;
-  handleChangeAge: (value?: string) => void;
+  handleChangeAge: (value: string) => void;
   handleChangeCity: (value?: string) => void;
   handleChangeUsername: (value?: string) => void;
   handleChangeAvatar: (value?: string) => void;
@@ -36,10 +36,10 @@ export const useInputChange = (): IUseInputChange => {
   );
 
   const handleChangeAge = useCallback(
-    (value?: string) => {
-      const canType = value && NUMBERS.test(value);
+    (value: string) => {
+      const canType = NUMBERS.test(value);
       if (canType) {
-        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+        dispatch(profileActions.updateProfile({ age: parseFloat(value) }));
       }
     },
     [dispatch]

@@ -1,8 +1,8 @@
-import { ECountry, TSelectOption } from 'shared/lib';
+import { TSelectOption } from 'shared/lib';
 
 export const COUNTRIES: TSelectOption[] = [
-  { value: ECountry.Russia, content: 'Россия' },
-  { value: ECountry.Belarus, content: 'Беларусь' },
-  { value: ECountry.Armenia, content: 'Армения' },
-  { value: ECountry.Ukraine, content: 'Украина' },
+  { value: 'Russia', content: 'Россия' },
+  { value: 'Belarus', content: 'Беларусь' },
+  { value: 'Armenia', content: 'Армения' },
+  { value: 'Ukraine', content: 'Украина' },
 ];
