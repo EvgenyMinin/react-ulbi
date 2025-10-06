@@ -1,6 +1,16 @@
 {
   "profile": "Profile",
   "edit": "Edit",
+  "decline": "Decline",
   "firstNamePlaceholder": "Your first name",
-  "lastNamePlaceholder": "Your last name"
+  "lastNamePlaceholder": "Your last name",
+  "agePlaceholder": "Your age",
+  "cityPlaceholder": "Your city",
+  "usernamePlaceholder": "Your username",
+  "avatarPlaceholder": "The link at avatar",
+  "serverError": "Oops, something went wrong with profile",
+  "refreshPage": "Try to refresh the page",
+  "currencyLabel": "Choose currency",
+  "countryLabel": "Choose country",
+  "save": "Save"
 }

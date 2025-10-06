@@ -1,0 +1,1 @@
+export { useInputChange } from './useInputChange';

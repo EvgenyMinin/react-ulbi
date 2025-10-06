@@ -2,12 +2,15 @@ import { ButtonHTMLAttributes, memo } from 'react';
 
 import cn from 'classnames';
 
+import { Mods } from 'shared/lib';
+
 import styles from './styles.module.scss';
 
 export enum EButtonTheme {
   CLEAR = 'clear',
   CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
+  OUTLINE_RED = 'outlineRed',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
 }
@@ -37,13 +40,14 @@ export const Button = memo((props: ButtonProps) => {
     ...otherProps
   } = props;
 
+  const mods: Mods = {
+    [styles.square]: isSquare,
+    [styles.disabled]: disabled,
+  };
+
   return (
     <button
-      className={cn(styles.button, { [styles.square]: isSquare, [styles.disabled]: disabled }, [
-        className,
-        styles[theme],
-        styles[size],
-      ])}
+      className={cn(styles.button, mods, [className, styles[theme], styles[size]])}
       disabled={disabled}
       {...otherProps}
     >

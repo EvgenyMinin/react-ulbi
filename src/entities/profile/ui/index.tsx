@@ -1,30 +1,120 @@
+import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers';
+import { CountrySelect } from 'entities/country';
+import { CurrencySelect } from 'entities/currency';
 
-import { Button, EButtonTheme, Input, Loader, Text } from 'shared/ui';
+import { ECountry, ECurrency, IError, Mods } from 'shared/lib';
+import { Avatar, ETextAlign, ETextTheme, Input, Loader, Text } from 'shared/ui';
 
 import styles from './styles.module.scss';
-import { profileSelectors } from '../model';
+import { IProfile } from '../lib';
 
-export const ProfileCard = () => {
+interface ProfileCardProps {
+  data?: IProfile;
+  isLoading?: boolean;
+  error?: IError;
+  readonly?: boolean;
+  onChangeFirstName?: (value?: string) => void;
+  onChangeLastName?: (value?: string) => void;
+  onChangeAge?: (value: string) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeUsername?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
+  onChangeCurrency?: (currency: ECurrency) => void;
+  onChangeCountry?: (country: ECountry) => void;
+}
+
+export const ProfileCard = (props: ProfileCardProps) => {
+  const {
+    data,
+    isLoading,
+    error,
+    readonly,
+    onChangeFirstName,
+    onChangeLastName,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+    onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
+  } = props;
   const { t } = useTranslation('profile');
-  const data = useAppSelector(profileSelectors.profileSelector);
-  const isLoading = useAppSelector(profileSelectors.profileLoading);
+
+  const mods: Mods = {
+    [styles.editing]: !readonly,
+  };
 
   if (isLoading) {
-    return <Loader />;
+    return (
+      <div className={cn(styles.profileCard, {}, [styles.loading])}>
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error?.message) {
+    return (
+      <div className={cn(styles.profileCard, {}, [styles.error])}>
+        <Text
+          title={t('serverError')}
+          text={t('refreshPage')}
+          theme={ETextTheme.ERROR}
+          align={ETextAlign.CENTER}
+        />
+      </div>
+    );
   }
 
   return (
-    <div className={styles.profileCard}>
-      <div className={styles.header}>
-        <Text title={t('profile')} />
-        <Button theme={EButtonTheme.OUTLINE}>{t('edit')}</Button>
-      </div>
+    <div className={cn(styles.profileCard, mods)}>
       <div className={styles.data}>
-        <Input value={data?.firstName} placeholder={t('firstNamePlaceholder')} />
-        <Input value={data?.lastName} placeholder={t('lastNamePlaceholder')} />
+        {data?.avatar && (
+          <div className={styles.avatarWrapper}>
+            <Avatar src={data.avatar} />
+          </div>
+        )}
+
+        <Input
+          value={data?.firstName}
+          readOnly={readonly}
+          placeholder={t('firstNamePlaceholder')}
+          onChange={onChangeFirstName}
+        />
+        <Input
+          value={data?.lastName}
+          readOnly={readonly}
+          placeholder={t('lastNamePlaceholder')}
+          onChange={onChangeLastName}
+        />
+        <Input
+          value={data?.age?.toString()}
+          readOnly={readonly}
+          placeholder={t('agePlaceholder')}
+          type='number'
+          onChange={onChangeAge}
+        />
+        <Input
+          value={data?.city}
+          readOnly={readonly}
+          placeholder={t('cityPlaceholder')}
+          onChange={onChangeCity}
+        />
+        <Input
+          value={data?.username}
+          readOnly={readonly}
+          placeholder={t('usernamePlaceholder')}
+          onChange={onChangeUsername}
+        />
+        <Input
+          value={data?.avatar}
+          readOnly={readonly}
+          placeholder={t('avatarPlaceholder')}
+          onChange={onChangeAvatar}
+        />
+        <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
+        <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} />
       </div>
     </div>
   );

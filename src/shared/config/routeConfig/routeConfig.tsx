@@ -5,6 +5,10 @@ import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
 
+export type TAppRoutesProps = RouteProps & {
+  authOnly?: boolean;
+};
+
 export enum EAppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
@@ -19,7 +23,7 @@ export const RoutePath: Record<EAppRoutes, string> = {
   [EAppRoutes.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Record<EAppRoutes, RouteProps> = {
+export const routeConfig: Record<EAppRoutes, TAppRoutesProps> = {
   [EAppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />,
@@ -33,6 +37,7 @@ export const routeConfig: Record<EAppRoutes, RouteProps> = {
   [EAppRoutes.PROFILE]: {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
 
   [EAppRoutes.NOT_FOUND]: {

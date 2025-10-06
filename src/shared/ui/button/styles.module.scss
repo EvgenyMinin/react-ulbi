@@ -26,6 +26,12 @@
   background: none;
 }
 
+.outlineRed {
+  border: 1px solid var(--error-light);
+  color: var(--error-light);
+  background: none;
+}
+
 .background {
   background-color: var(--bg-color);
   color: var(--primary-color);

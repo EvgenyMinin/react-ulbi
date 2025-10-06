@@ -12,21 +12,36 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autofocus?: boolean;
+  readOnly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
-  const { className, value, onChange, type = 'text', placeholder, autofocus, ...rest } = props;
+  const {
+    className,
+    value,
+    onChange,
+    type = 'text',
+    placeholder,
+    autofocus,
+    readOnly,
+    ...rest
+  } = props;
 
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [currentPosition, setIsCurrentPosition] = useState<number>(0);
+
+  const isCaretVisible = isFocused && !readOnly;
 
   const handleOnChange = useCallback(
     ({ target: { value: inputValue } }: ChangeEvent<HTMLInputElement>) => {
@@ -59,11 +74,12 @@ export const Input = memo((props: InputProps) => {
     <div className={cn(styles.inputWrapper, {}, [className])}>
       {placeholder && <div className={styles.placeholder}>{`${placeholder}>`}</div>}
 
-      <div className={styles.caretWrapper}>
+      <div className={cn(styles.caretWrapper, { [styles.readOnly]: readOnly })}>
         <input
           ref={ref}
           type={type}
           value={value}
+          readOnly={readOnly}
           onChange={handleOnChange}
           className={styles.input}
           onFocus={handleFocus}
@@ -71,7 +87,7 @@ export const Input = memo((props: InputProps) => {
           onSelect={handleSelect}
           {...rest}
         />
-        {isFocused && (
+        {isCaretVisible && (
           <span className={styles.caret} style={{ left: `${currentPosition * 9}px` }} />
         )}
       </div>

@@ -1,4 +1,4 @@
-export { IProfile, IProfileSchema } from './lib/types/profile';
+export { IProfile, IProfileSchema } from './lib/types';
 export { profileActions, profileReducer } from './model/slice';
-export { profileService } from './model';
+export { profileService, profileSlice, profileSelectors } from './model';
 export { ProfileCard } from './ui';
