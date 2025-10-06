@@ -1,18 +1,29 @@
 import { useEffect } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import { useAppDispatch, useAppSelector } from 'app/providers';
 
-import { ProfileCard, profileSelectors, profileService } from 'entities/profile';
+import {
+  EValidateProfileError,
+  ProfileCard,
+  profileSelectors,
+  profileService,
+} from 'entities/profile';
+
+import { ETextTheme, Text } from 'shared/ui';
 
 import { ProfilePageHeader } from './ProfilePageHeader';
 import { useInputChange } from '../lib/hooks';
 
 const ProfilePage = () => {
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const formData = useAppSelector(profileSelectors.profileForm);
   const isLoading = useAppSelector(profileSelectors.profileLoading);
   const error = useAppSelector(profileSelectors.profileError);
   const readonly = useAppSelector(profileSelectors.profileReadOnly);
+  const validateErrors = useAppSelector(profileSelectors.profileValidateErrorsSelector);
 
   const {
     handleChangeFirstName,
@@ -25,6 +36,14 @@ const ProfilePage = () => {
     handleChangeCountry,
   } = useInputChange();
 
+  const validateErrorTranslates = {
+    [EValidateProfileError.INCORRECT_AGE]: t('incorrectAge'),
+    [EValidateProfileError.INCORRECT_COUNTRY]: t('incorrectCountry'),
+    [EValidateProfileError.INCORRECT_USER_DATA]: t('incorrectUserData'),
+    [EValidateProfileError.NO_DATA]: t('noData'),
+    [EValidateProfileError.SERVER_ERROR]: t('serverUpdateError'),
+  };
+
   useEffect(() => {
     dispatch(profileService.fetchProfileData());
   }, [dispatch]);
@@ -32,6 +51,10 @@ const ProfilePage = () => {
   return (
     <div>
       <ProfilePageHeader />
+      {validateErrors?.length &&
+        validateErrors.map(err => (
+          <Text text={err} key={validateErrorTranslates[err]} theme={ETextTheme.ERROR} />
+        ))}
       <ProfileCard
         data={formData}
         isLoading={isLoading}

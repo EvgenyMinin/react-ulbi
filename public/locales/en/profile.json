@@ -12,5 +12,10 @@
   "refreshPage": "Try to refresh the page",
   "currencyLabel": "Choose currency",
   "countryLabel": "Choose country",
-  "save": "Save"
+  "save": "Save",
+  "incorrectUserData": "Incorrect user data",
+  "incorrectAge": "Incorrect age",
+  "incorrectCountry": "Incorrect country",
+  "noData": "No Data",
+  "serverUpdateError": "Oops, something went wrong"
 }

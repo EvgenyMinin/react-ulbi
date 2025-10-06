@@ -5,7 +5,8 @@ import { ThunkConfig } from 'app/providers';
 import i18n from 'shared/config/i18n/i18n';
 
 import { profileForm } from './selectors';
-import { IProfile } from '../lib';
+import { validateProfileData } from './services/validateProfileData';
+import { EValidateProfileError, IProfile } from '../lib';
 
 export const fetchProfileData = createAsyncThunk<IProfile, void, ThunkConfig<string>>(
   'profile/fetchProfileData',
@@ -20,17 +21,23 @@ export const fetchProfileData = createAsyncThunk<IProfile, void, ThunkConfig<str
   }
 );
 
-export const updateProfileData = createAsyncThunk<IProfile, void, ThunkConfig<string>>(
-  'profile/updateProfileData',
-  async (_, { rejectWithValue, extra, getState }) => {
-    const formData = profileForm(getState());
+export const updateProfileData = createAsyncThunk<
+  IProfile,
+  void,
+  ThunkConfig<EValidateProfileError[]>
+>('profile/updateProfileData', async (_, { rejectWithValue, extra, getState }) => {
+  const formData = profileForm(getState());
+  const errors = validateProfileData(formData);
 
-    try {
-      const { data } = await extra.api.post<IProfile>('/profile', formData);
-
-      return data;
-    } catch (error) {
-      return rejectWithValue(i18n.t('invalidLogin'));
-    }
+  if (errors.length) {
+    return rejectWithValue(errors);
   }
-);
+
+  try {
+    const { data } = await extra.api.post<IProfile>('/profile', formData);
+
+    return data;
+  } catch (error) {
+    return rejectWithValue([EValidateProfileError.SERVER_ERROR]);
+  }
+});
