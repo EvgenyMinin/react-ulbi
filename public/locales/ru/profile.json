@@ -12,5 +12,10 @@
   "refreshPage": "Пожалуйста, попробуйте обновить страницу",
   "currencyLabel": "Выберите валюту",
   "countryLabel": "Выберите страну",
-  "save": "Сохранить"
+  "save": "Сохранить",
+  "incorrectUserData": "Некорректные данные",
+  "incorrectAge": "Некорректный возраст",
+  "incorrectCountry": "Некорректныая страна",
+  "noData": "Нет данных",
+  "serverUpdateError": "Произошла ошибка на сервере"
 }

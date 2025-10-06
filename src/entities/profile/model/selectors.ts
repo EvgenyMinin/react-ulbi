@@ -4,7 +4,7 @@ import { RootState } from 'app/providers';
 
 import { IError } from 'shared/lib';
 
-import { IProfile } from '../lib';
+import { EValidateProfileError, IProfile } from '../lib';
 
 export const getProfileState = (state: RootState) => state.entities.profile;
 
@@ -32,3 +32,6 @@ export const profileReadOnly: Selector<RootState, boolean> = createSelector(
   getProfileState,
   ({ readonly }) => readonly
 );
+
+export const profileValidateErrorsSelector: Selector<RootState, EValidateProfileError[]> =
+  createSelector(getProfileState, ({ validateErrors }) => validateErrors ?? []);
