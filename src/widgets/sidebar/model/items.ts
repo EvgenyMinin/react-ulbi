@@ -1,4 +1,4 @@
-import { cilHome, cilMonitor, cilUser } from '@coreui/icons';
+import { cilHome, cilMonitor, cilUser, cilFile } from '@coreui/icons';
 
 import { RoutePath } from 'shared/config';
 
@@ -24,6 +24,12 @@ export const SidebarItemsList: SidebarItemType[] = [
     path: RoutePath.profile,
     text: 'profile',
     icon: cilUser,
+    authOnly: true,
+  },
+  {
+    path: RoutePath.articles,
+    text: 'articles',
+    icon: cilFile,
     authOnly: true,
   },
 ];
