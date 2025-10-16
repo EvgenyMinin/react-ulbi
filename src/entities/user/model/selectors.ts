@@ -11,3 +11,8 @@ export const userAuthData: Selector<RootState, IUser | undefined> = createSelect
   userSelector,
   ({ authData }) => authData
 );
+
+export const isInitializedSelector: Selector<RootState, boolean> = createSelector(
+  userSelector,
+  ({ isInitialized }) => isInitialized
+);

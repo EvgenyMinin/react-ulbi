@@ -51,7 +51,7 @@ const ProfilePage = () => {
   return (
     <div>
       <ProfilePageHeader />
-      {validateErrors?.length &&
+      {Boolean(validateErrors?.length) &&
         validateErrors.map(err => (
           <Text text={err} key={validateErrorTranslates[err]} theme={ETextTheme.ERROR} />
         ))}

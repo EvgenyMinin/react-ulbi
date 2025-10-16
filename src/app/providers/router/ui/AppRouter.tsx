@@ -1,37 +1,29 @@
-import { Suspense, useMemo } from 'react';
+import { Suspense, useCallback } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { useAppSelector } from 'app/providers';
-
 import { PageLoader } from 'widgets/page-loader';
 
-import { userSelectors } from 'entities/user';
+import { routeConfig, TAppRoutesProps } from 'shared/config';
 
-import { routeConfig } from 'shared/config';
+import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
-  const isAuth = useAppSelector(userSelectors.userAuthData);
+  const renderWithWrapper = useCallback((route: TAppRoutesProps) => {
+    const element = (
+      <Suspense fallback={<PageLoader />}>
+        <div className='page-wrapper'>{route.element}</div>
+      </Suspense>
+    );
 
-  const routes = useMemo(
-    () =>
-      Object.values(routeConfig).filter(({ authOnly }) => {
-        if (authOnly && !isAuth) {
-          return false;
-        }
+    return (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+      />
+    );
+  }, []);
 
-        return true;
-      }),
-    [isAuth]
-  );
-
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {routes.map(({ path, element }) => (
-          <Route key={path} path={path} element={<div className='page-wrapper'>{element}</div>} />
-        ))}
-      </Routes>
-    </Suspense>
-  );
+  return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 };
