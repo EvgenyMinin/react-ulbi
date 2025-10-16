@@ -4,5 +4,6 @@ export interface IUser {
 }
 
 export interface IUserSchema {
+  isInitialized: boolean;
   authData?: IUser;
 }

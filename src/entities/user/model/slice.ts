@@ -4,7 +4,9 @@ import { USER_LOCAL_STORAGE_KEY } from 'shared/consts';
 
 import { IUser, IUserSchema } from '../lib';
 
-const initialState: IUserSchema = {};
+const initialState: IUserSchema = {
+  isInitialized: false,
+};
 
 export const userSlice = createSlice({
   name: 'entities/user',
@@ -20,6 +22,7 @@ export const userSlice = createSlice({
       if (user) {
         state.authData = JSON.parse(user);
       }
+      state.isInitialized = true;
     },
 
     logOut: state => {

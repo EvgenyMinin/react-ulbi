@@ -5,13 +5,14 @@ import cn from 'classnames';
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/sidebar';
 
-import { userSlice } from 'entities/user';
+import { userSelectors, userSlice } from 'entities/user';
 
-import { useAppDispatch } from './providers';
+import { useAppDispatch, useAppSelector } from './providers';
 import { AppRouter } from './providers/router';
 
 export const App = () => {
   const dispatch = useAppDispatch();
+  const isInitialized = useAppSelector(userSelectors.isInitializedSelector);
 
   useEffect(() => {
     dispatch(userSlice.actions.initAuthData());
@@ -24,7 +25,7 @@ export const App = () => {
 
         <div className='content-page'>
           <Sidebar />
-          <AppRouter />
+          {isInitialized && <AppRouter />}
         </div>
       </Suspense>
     </div>
