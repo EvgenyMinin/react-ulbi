@@ -8,3 +8,4 @@ export * from './input';
 export * from './text';
 export * from './avatar';
 export * from './select';
+export * from './Skeleton';

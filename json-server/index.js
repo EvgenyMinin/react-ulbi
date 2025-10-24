@@ -52,6 +52,21 @@ server.post('/profile', (req, res) => {
   return res.status(403).json({ message: 'AUTH ERROR' });
 });
 
+server.get('/articles/:id', (req, res) => {
+  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json')));
+  const { articles } = db;
+
+  const articleId = req.params.id;
+
+  const response = articles.find(({ id }) => id === articleId);
+
+  if (response) {
+    return res.json(response);
+  }
+
+  return res.status(404).json({ message: 'Article not found' });
+});
+
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(403).json({ message: 'AUTH ERROR' });

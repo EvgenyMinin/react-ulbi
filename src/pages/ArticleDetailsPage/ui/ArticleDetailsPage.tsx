@@ -1,11 +1,13 @@
 import { memo } from 'react';
 
-import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+
+import { ArticleDetails } from 'entities/article';
 
 const ArticleDetailsPage = () => {
-  const { t } = useTranslation('article');
+  const { id = '' } = useParams<{ id: string }>();
 
-  return <div>{t('title')}</div>;
+  return <ArticleDetails articleId={id} />;
 };
 
 export default memo(ArticleDetailsPage);
