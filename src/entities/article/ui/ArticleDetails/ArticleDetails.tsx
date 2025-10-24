@@ -19,7 +19,7 @@ export const ArticleDetails = ({ articleId }: TArticleDetailsProps) => {
 
   // const isLoading = useAppSelector(articleDetailsSelectors.isLoadingSelector);
   const isLoading = true;
-  const article = useAppSelector(articleDetailsSelectors.articleDetailsSelector);
+  // const article = useAppSelector(articleDetailsSelectors.articleDetailsSelector);
   const error = useAppSelector(articleDetailsSelectors.errorSelector);
 
   useFetchArticleById(articleId);
@@ -40,5 +40,5 @@ export const ArticleDetails = ({ articleId }: TArticleDetailsProps) => {
     return <Text text={t('error')} align={ETextAlign.CENTER} />;
   }
 
-  return <div className={styles.ArticleDetails}>ArticleDetails123</div>;
+  return <div className={styles.ArticleDetails}></div>;
 };
