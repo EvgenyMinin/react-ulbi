@@ -35,7 +35,7 @@
         {
           "id": "4",
           "type": "CODE",
-          "code": "console.log('Hello, World!');"
+          "code": "export function main() {\n  console.log('Hello World!');\n}\n\nmain();"
         },
         {
           "id": "2",
