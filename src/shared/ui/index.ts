@@ -9,3 +9,4 @@ export * from './text';
 export * from './avatar';
 export * from './select';
 export * from './Skeleton';
+export * from './CodeBlock';

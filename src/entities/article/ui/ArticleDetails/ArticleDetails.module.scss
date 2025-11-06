@@ -1,11 +1,18 @@
-.ArticleDetails {
-  min-height: 100%;
-}
-
+.ArticleDetails,
 .skeletonContainer {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.ArticleDetails {
+  min-height: 100%;
+}
+
+.viewContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .avatar {

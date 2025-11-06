@@ -7,7 +7,7 @@ import { ETextAlign, ETextTheme } from '../lib';
 
 interface ITextProps {
   title?: string;
-  text?: string;
+  text?: string | number;
   className?: string;
   theme?: ETextTheme;
   align?: ETextAlign;

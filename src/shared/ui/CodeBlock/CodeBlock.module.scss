@@ -1,0 +1,13 @@
+.codeBlock {
+  border: 1px solid var(--primary-color);
+  padding: 16px;
+  position: relative;
+  background-color: var(--code-bg);
+  overflow: auto;
+}
+
+.copyButton {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
