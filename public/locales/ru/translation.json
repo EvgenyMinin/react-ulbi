@@ -4,5 +4,6 @@
   "refreshPage": "Обновить страницу",
   "showError": "Показать ошибку",
   "toggle": "Переключить",
-  "invalidLogin": "Invorrect login or password"
+  "invalidLogin": "Вы ввели неверный логин иди пароль",
+  "emptyComments": "Комментарии отсутствуют"
 }

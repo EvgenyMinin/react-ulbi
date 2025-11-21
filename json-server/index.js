@@ -1,11 +1,27 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+
 const server = jsonServer.create();
-const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults({ noCors: false });
 
 server.use(middlewares);
+
+const posts = JSON.parse(fs.readFileSync(path.join(__dirname, 'posts.json'), 'utf-8'));
+const articles = JSON.parse(fs.readFileSync(path.join(__dirname, 'articles.json'), 'utf-8'));
+const users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), 'utf-8'));
+const comments = JSON.parse(fs.readFileSync(path.join(__dirname, 'comments.json'), 'utf-8'));
+const profile = JSON.parse(fs.readFileSync(path.join(__dirname, 'profile.json'), 'utf-8'));
+
+const db = {
+  posts: posts.posts,
+  articles: articles.articles,
+  users: users.users,
+  comments: comments.comments,
+  profile: profile.profile,
+};
+
+const router = jsonServer.router(db);
 
 server.use(jsonServer.bodyParser);
 
@@ -17,12 +33,42 @@ server.use(async (req, res, next) => {
   next();
 });
 
-server.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json')));
-  const { users } = db;
+router.render = ({ method }, res) => {
+  res.jsonp(res.locals.data);
 
-  const userFromBd = users.find(user => user.username === username && user.password === password);
+  const writeData = (filePath, data) => {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  };
+
+  if (method === 'POST' || method === 'PUT' || method === 'PATCH' || method === 'DELETE') {
+    writeData(path.join(__dirname, 'posts.json'), {
+      posts: router.db.get('posts').value(),
+    });
+
+    writeData(path.join(__dirname, 'comments.json'), {
+      comments: router.db.get('comments').value(),
+    });
+
+    writeData(path.join(__dirname, 'profile.json'), {
+      profile: router.db.get('profile').value(),
+    });
+
+    writeData(path.join(__dirname, 'users.json'), {
+      users: router.db.get('users').value(),
+    });
+
+    writeData(path.join(__dirname, 'articles.json'), {
+      articles: router.db.get('articles').value(),
+    });
+  }
+};
+
+server.post('/login', ({ body }, res) => {
+  const { username, password } = body;
+
+  const userFromBd = db.users.find(
+    user => user.username === username && user.password === password
+  );
 
   if (userFromBd) {
     return res.json(userFromBd);
@@ -32,33 +78,15 @@ server.post('/login', (req, res) => {
 });
 
 server.get('/profile', (_, res) => {
-  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json')));
-  const { profile } = db;
-
-  if (profile) {
-    return res.json(profile);
+  if (db.profile) {
+    return res.json(db.profile);
   }
 
   return res.status(403).json({ message: 'AUTH ERROR' });
 });
 
-server.post('/profile', (req, res) => {
-  const { body } = req;
-
-  if (body) {
-    return res.json(body);
-  }
-
-  return res.status(403).json({ message: 'AUTH ERROR' });
-});
-
-server.get('/articles/:id', (req, res) => {
-  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json')));
-  const { articles } = db;
-
-  const articleId = req.params.id;
-
-  const response = articles.find(({ id }) => id === articleId);
+server.get('/articles/:id', ({ params: { id: articleId } }, res) => {
+  const response = db.articles.find(({ id }) => id === articleId);
 
   if (response) {
     return res.json(response);
