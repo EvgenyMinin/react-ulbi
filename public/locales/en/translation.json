@@ -4,5 +4,6 @@
   "refreshPage": "Refresh",
   "showError": "Show error",
   "toggle": "Toggle",
-  "invalidLogin": "Вы ввели неверный логин иди пароль"
+  "invalidLogin": "Invorrect login or password",
+  "emptyComments": "No comments yet"
 }

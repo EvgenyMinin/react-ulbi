@@ -1,0 +1,13 @@
+.container,
+.commentListWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  gap: 32px;
+}
+
+.commentListWrapper {
+  gap: 16px;
+}
