@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
 import { RoutePath } from 'shared/config';
-import { useHover } from 'shared/lib';
+import { useHover } from 'shared/hooks';
 import { Card, Text } from 'shared/ui';
 
 import styles from './ArticleListItem.module.scss';
