@@ -1,5 +1,8 @@
 {
   "title": "Title",
   "error": "Something went wrong with article",
-  "comments": "Comments"
+  "comments": "Comments",
+  "buttons": {
+    "backToList": "Back to list"
+  }
 }

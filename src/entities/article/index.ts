@@ -1,3 +1,3 @@
-export { ArticleDetails } from './ui';
-export type { IArticle, IArticleDetailsSchema } from './lib';
+export { ArticleDetails, ArticleList } from './ui';
+export * from './lib';
 export { articleDetailsSlice } from './model';
