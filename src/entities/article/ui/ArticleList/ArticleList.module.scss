@@ -1,0 +1,11 @@
+.big {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

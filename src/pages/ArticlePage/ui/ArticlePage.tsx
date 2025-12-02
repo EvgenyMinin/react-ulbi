@@ -1,11 +1,7 @@
 import { memo } from 'react';
 
-import { useTranslation } from 'react-i18next';
+import { ArticleList } from 'entities/article';
 
-const ArticlePage = () => {
-  const { t } = useTranslation('article');
-
-  return <div>{t('title')}</div>;
-};
+const ArticlePage = () => <ArticleList view='small' articles={[]} />;
 
 export default memo(ArticlePage);

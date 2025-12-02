@@ -1,7 +1,7 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/providers';
 
@@ -13,7 +13,8 @@ import {
 import { ArticleDetails } from 'entities/article';
 import { CommentList } from 'entities/comment';
 
-import { Text } from 'shared/ui';
+import { RoutePath } from 'shared/config';
+import { Button, Text } from 'shared/ui';
 
 import styles from './ArticleDetailsPage.module.scss';
 
@@ -21,21 +22,29 @@ const ArticleDetailsPage = () => {
   const { id = '' } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const { t } = useTranslation('article');
+  const navigate = useNavigate();
   const comments = useAppSelector(fetchArticleCommentsSelectors.articleCommentsSelector.selectAll);
   const isLoading = useAppSelector(fetchArticleCommentsSelectors.isLoadingSelector);
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   }, [dispatch, id]);
 
   return (
-    <div className={styles.container}>
-      <ArticleDetails articleId={id} />
-      <div className={styles.commentListWrapper}>
-        <Text title={t('comments')} />
-        <CommentList isLoading={isLoading} comments={comments} />
+    <>
+      <Button onClick={onBackToList}>{t('buttons.backToList')}</Button>
+      <div className={styles.container}>
+        <ArticleDetails articleId={id} />
+        <div className={styles.commentListWrapper}>
+          <Text title={t('comments')} />
+          <CommentList isLoading={isLoading} comments={comments} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
