@@ -9,7 +9,7 @@ import { TArticleCommentsState } from '../lib';
 import { fetchCommentsByArticleId } from '../services';
 
 const fetchArticleCommentsSlice = createSlice({
-  name: 'feature/fetch-article-comments',
+  name: 'features/fetch-article-comments',
   initialState: commentsAdapter.getInitialState<TArticleCommentsState>({
     isLoading: false,
   }),

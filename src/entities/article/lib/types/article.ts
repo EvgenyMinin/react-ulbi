@@ -32,6 +32,11 @@ export enum EArticleType {
   ECONOMICS = 'ECONOMICS',
 }
 
+export enum EArticleView {
+  SMALL = 'SMALL',
+  BIG = 'BIG',
+}
+
 export interface IArticle {
   id: string;
   title: string;

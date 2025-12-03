@@ -5,16 +5,17 @@ import cn from 'classnames';
 import { Card, Skeleton } from 'shared/ui';
 
 import styles from './ArticleListItem.module.scss';
+import { EArticleView } from '../../lib';
 
 type TArticleListItemSkeletonProps = {
   className?: string;
-  view: 'big' | 'small';
+  view: EArticleView;
 };
 
 export const ArticleListItemSkeleton = memo((props: TArticleListItemSkeletonProps) => {
   const { className, view } = props;
 
-  if (view === 'big') {
+  if (view === EArticleView.BIG) {
     return (
       <div className={cn(styles.articleListItem, {}, [className, styles[view]])}>
         <Card className={styles.card}>

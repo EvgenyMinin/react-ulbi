@@ -10,12 +10,12 @@ import { useHover } from 'shared/hooks';
 import { Card, Text } from 'shared/ui';
 
 import styles from './ArticleListItem.module.scss';
-import { IArticle } from '../../lib';
+import { EArticleView, IArticle } from '../../lib';
 
 type TArticleListItemProps = {
   article: IArticle;
   className?: string;
-  view: 'big' | 'small';
+  view: EArticleView;
 };
 
 export const ArticleListItem = memo((props: TArticleListItemProps) => {
@@ -37,7 +37,7 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
     </>
   );
 
-  if (view === 'big') {
+  if (view === EArticleView.BIG) {
     return (
       <div className={cn(styles.articleListItem, {}, [className, styles[view]])}>
         <Card className={styles.card}>
