@@ -4,6 +4,7 @@ import { AxiosInstance } from 'axios';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import { fetchArticleCommentsSlice } from 'features/fetch-article-comments';
+import { fetchArticleListSlice } from 'features/fetch-article-list';
 import { loginSlice } from 'features/login-by-username';
 
 import { articleDetailsSlice } from 'entities/article';
@@ -22,6 +23,7 @@ const entities = combineReducers({
 const features = combineReducers({
   loginForm: loginSlice.reducer,
   fetchArticleComments: fetchArticleCommentsSlice.reducer,
+  fetchArticleList: fetchArticleListSlice.reducer,
 });
 
 const rootReducer = combineReducers({

@@ -3,23 +3,23 @@ import React, { memo } from 'react';
 import cn from 'classnames';
 
 import styles from './ArticleList.module.scss';
-import { IArticle } from '../../lib';
+import { EArticleView, IArticle } from '../../lib';
 import { ArticleListItem, ArticleListItemSkeleton } from '../ArticleListItem';
 
 type TArticleListProps = {
   articles: IArticle[];
+  view: EArticleView;
   className?: string;
   isLoading?: boolean;
-  view?: 'big' | 'small';
 };
 
-const getSkeletons = (view: 'small' | 'big') =>
-  new Array(view === 'small' ? 9 : 3)
+const getSkeletons = (view: EArticleView) =>
+  new Array(view === EArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList = memo((props: TArticleListProps) => {
-  const { className, articles, view = 'small', isLoading } = props;
+  const { className, articles, view = EArticleView.SMALL, isLoading } = props;
 
   if (isLoading) {
     return (
