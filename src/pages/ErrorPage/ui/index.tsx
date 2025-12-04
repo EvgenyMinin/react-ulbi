@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
+import { Layout } from 'widgets/layout';
+
 import { Button } from 'shared/ui';
 
 import styles from './styles.module.scss';
@@ -12,9 +14,9 @@ export const ErrorPage = () => {
   };
 
   return (
-    <div className={styles.errorContainer}>
+    <Layout className={styles.errorContainer}>
       <p>{t('errorPage')}</p>
       <Button onClick={reloadPage}>{t('refreshPage')}</Button>
-    </div>
+    </Layout>
   );
 };

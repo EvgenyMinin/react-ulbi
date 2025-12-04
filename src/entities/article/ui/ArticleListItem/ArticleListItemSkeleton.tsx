@@ -21,6 +21,10 @@ export const ArticleListItemSkeleton = memo((props: TArticleListItemSkeletonProp
         <Card className={styles.card}>
           <Skeleton width={200} height={24} />
           <Skeleton width={150} height={24} />
+          <div className={styles.controllerContainer}>
+            <Skeleton width={250} height={46} />
+            <Skeleton width={40} height={24} />
+          </div>
         </Card>
       </div>
     );
@@ -33,9 +37,10 @@ export const ArticleListItemSkeleton = memo((props: TArticleListItemSkeletonProp
           <Skeleton width={200} height={200} className={styles.image} />
         </div>
         <div className={styles.infoWrapper}>
-          <Skeleton width={130} height={16} />
+          <Skeleton width={130} height={24} />
+          <Skeleton width={40} height={24} />
         </div>
-        <Skeleton width={150} height={16} />
+        <Skeleton width={150} height={24} />
       </Card>
     </div>
   );

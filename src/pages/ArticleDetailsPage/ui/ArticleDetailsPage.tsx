@@ -5,6 +5,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/providers';
 
+import { Layout } from 'widgets/layout';
+
 import {
   fetchArticleCommentsSelectors,
   fetchCommentsByArticleId,
@@ -35,7 +37,7 @@ const ArticleDetailsPage = () => {
   }, [dispatch, id]);
 
   return (
-    <>
+    <Layout>
       <Button onClick={onBackToList}>{t('buttons.backToList')}</Button>
       <div className={styles.container}>
         <ArticleDetails articleId={id} />
@@ -44,7 +46,7 @@ const ArticleDetailsPage = () => {
           <CommentList isLoading={isLoading} comments={comments} />
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

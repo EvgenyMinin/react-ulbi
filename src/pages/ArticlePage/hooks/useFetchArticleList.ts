@@ -1,13 +1,28 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useAppDispatch } from 'app/providers';
 
-import { fetchArticleListServices } from 'features/fetch-article-list';
+import {
+  fetchArticleList,
+  fetchArticleListSlice,
+  fetchNextArticleListPage,
+} from 'features/fetch-article-list';
 
-export const useFetchArticleList = (): void => {
+type TReturnType = {
+  onLoadNextPart: () => void;
+};
+
+export const useFetchArticleList = (): TReturnType => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchArticleListServices.fetchArticleList());
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticleListPage());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchArticleListSlice.actions.initState());
+    dispatch(fetchArticleList({ page: 1 }));
+  }, [dispatch]);
+
+  return { onLoadNextPart };
 };

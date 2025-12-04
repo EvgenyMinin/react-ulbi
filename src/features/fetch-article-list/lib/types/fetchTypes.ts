@@ -5,6 +5,9 @@ import { IError } from 'shared/lib';
 export type TArticleListState = {
   isLoading: boolean;
   view: EArticleView;
+  page: number;
+  hasMore: boolean;
+  limit?: number;
   error?: IError;
   data?: IArticle[];
 };

@@ -3,6 +3,7 @@
   "error": "Something went wrong with article",
   "comments": "Comments",
   "buttons": {
-    "backToList": "Back to list"
+    "backToList": "Back to list",
+    "more": "More"
   }
 }
