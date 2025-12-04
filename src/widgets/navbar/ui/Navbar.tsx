@@ -31,20 +31,20 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (userAuth) {
     return (
-      <div className={cn(styles.navbar, {}, [className])}>
+      <header className={cn(styles.navbar, {}, [className])}>
         <Button className={styles.links} theme={EButtonTheme.CLEAR_INVERTED} onClick={handleLogOut}>
           {t('logout')}
         </Button>
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={cn(styles.navbar, {}, [className])}>
+    <header className={cn(styles.navbar, {}, [className])}>
       <Button className={styles.links} theme={EButtonTheme.CLEAR_INVERTED} onClick={toggleOpen}>
         {t('login')}
       </Button>
       <LoginModal isOpen={isOpen} onClose={toggleOpen} />
-    </div>
+    </header>
   );
 });

@@ -3,11 +3,12 @@ import React, { memo, useCallback } from 'react';
 import { cilLowVision } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { RoutePath } from 'shared/config';
 import { useHover } from 'shared/hooks';
-import { Card, Text } from 'shared/ui';
+import { Button, Card, Text } from 'shared/ui';
 
 import styles from './ArticleListItem.module.scss';
 import { EArticleView, IArticle } from '../../lib';
@@ -21,6 +22,7 @@ type TArticleListItemProps = {
 export const ArticleListItem = memo((props: TArticleListItemProps) => {
   const { className, article, view } = props;
   const navigate = useNavigate();
+  const { t } = useTranslation('article');
 
   const [, bindHover] = useHover();
 
@@ -31,10 +33,10 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
   const types = <Text text={article.type.join(', ')} className={styles.types} />;
   const title = <Text text={article.title} className={styles.title} />;
   const views = (
-    <>
-      <Text text={article.views} />
+    <div className={styles.views}>
       <CIcon icon={cilLowVision} width={24} />
-    </>
+      <Text text={article.views} />
+    </div>
   );
 
   if (view === EArticleView.BIG) {
@@ -43,6 +45,10 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
         <Card className={styles.card}>
           {title}
           {types}
+          <div className={styles.controllerContainer}>
+            <Button onClick={useOpenArticle}>{t('buttons.more')}</Button>
+            {views}
+          </div>
         </Card>
       </div>
     );

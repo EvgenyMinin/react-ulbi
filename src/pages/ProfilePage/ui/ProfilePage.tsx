@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from 'app/providers';
 
+import { Layout } from 'widgets/layout';
+
 import {
   EValidateProfileError,
   ProfileCard,
@@ -49,7 +51,7 @@ const ProfilePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <Layout>
       <ProfilePageHeader />
       {Boolean(validateErrors?.length) &&
         validateErrors.map(err => (
@@ -69,7 +71,7 @@ const ProfilePage = () => {
         onChangeCurrency={handleChangeCurrency}
         onChangeCountry={handleChangeCountry}
       />
-    </div>
+    </Layout>
   );
 };
 

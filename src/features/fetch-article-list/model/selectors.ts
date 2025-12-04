@@ -26,3 +26,18 @@ export const articleViewSelector: Selector<RootState, EArticleView> = createSele
   (state: RootState) => state.features.fetchArticleList,
   ({ view }) => view
 );
+
+export const articleListPageSelector: Selector<RootState, number> = createSelector(
+  (state: RootState) => state.features.fetchArticleList,
+  ({ page }) => page ?? 1
+);
+
+export const articleListLimitSelector: Selector<RootState, number> = createSelector(
+  (state: RootState) => state.features.fetchArticleList,
+  ({ limit }) => limit ?? 9
+);
+
+export const articleListHasMoreSelector: Selector<RootState, boolean> = createSelector(
+  (state: RootState) => state.features.fetchArticleList,
+  ({ hasMore }) => hasMore
+);

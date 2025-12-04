@@ -10,11 +10,7 @@ import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
   const renderWithWrapper = useCallback((route: TAppRoutesProps) => {
-    const element = (
-      <Suspense fallback={<PageLoader />}>
-        <div className='page-wrapper'>{route.element}</div>
-      </Suspense>
-    );
+    const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
 
     return (
       <Route

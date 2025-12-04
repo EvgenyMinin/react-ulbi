@@ -42,6 +42,11 @@
     align-items: center;
   }
 
+  .views {
+    display: flex;
+    gap: 8px;
+  }
+
   .types p {
     width: 100px;
     white-space: nowrap;
@@ -60,5 +65,25 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+.BIG {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .views {
+    display: flex;
+    gap: 8px;
+  }
+
+  .controllerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
   }
 }
