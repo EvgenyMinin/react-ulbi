@@ -15,6 +15,7 @@ const articleListSlice = createSlice({
     view: EArticleView.SMALL,
     page: 1,
     hasMore: true,
+    inited: false,
   }),
   reducers: {
     setView: (state, { payload }: PayloadAction<EArticleView>) => {
@@ -31,6 +32,7 @@ const articleListSlice = createSlice({
     },
     initState: state => {
       state.limit = state.view === EArticleView.BIG ? 4 : 9;
+      state.inited = true;
     },
   },
   extraReducers(builder) {

@@ -2,11 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 import { useAppDispatch } from 'app/providers';
 
-import {
-  fetchArticleList,
-  fetchArticleListSlice,
-  fetchNextArticleListPage,
-} from 'features/fetch-article-list';
+import { fetchNextArticleListPage, initArticlesPage } from 'features/fetch-article-list';
 
 type TReturnType = {
   onLoadNextPart: () => void;
@@ -20,8 +16,7 @@ export const useFetchArticleList = (): TReturnType => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchArticleListSlice.actions.initState());
-    dispatch(fetchArticleList({ page: 1 }));
+    dispatch(initArticlesPage());
   }, [dispatch]);
 
   return { onLoadNextPart };

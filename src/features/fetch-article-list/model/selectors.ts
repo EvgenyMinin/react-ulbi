@@ -41,3 +41,8 @@ export const articleListHasMoreSelector: Selector<RootState, boolean> = createSe
   (state: RootState) => state.features.fetchArticleList,
   ({ hasMore }) => hasMore
 );
+
+export const articleListInitedSelector: Selector<RootState, boolean> = createSelector(
+  (state: RootState) => state.features.fetchArticleList,
+  ({ inited }) => inited
+);
