@@ -7,6 +7,7 @@ export type TArticleListState = {
   view: EArticleView;
   page: number;
   hasMore: boolean;
+  inited: boolean;
   limit?: number;
   error?: IError;
   data?: IArticle[];
