@@ -3,6 +3,8 @@ import { AxiosInstance } from 'axios';
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
+import { layoutSlice } from 'widgets/layout';
+
 import { fetchArticleCommentsSlice } from 'features/fetch-article-comments';
 import { fetchArticleListSlice } from 'features/fetch-article-list';
 import { loginSlice } from 'features/login-by-username';
@@ -20,15 +22,21 @@ const entities = combineReducers({
   profile: profileReducer,
   articleDetails: articleDetailsSlice.reducer,
 });
+
 const features = combineReducers({
   loginForm: loginSlice.reducer,
   fetchArticleComments: fetchArticleCommentsSlice.reducer,
   fetchArticleList: fetchArticleListSlice.reducer,
 });
 
+const widgets = combineReducers({
+  layout: layoutSlice.reducer,
+});
+
 const rootReducer = combineReducers({
   entities,
   features,
+  widgets,
 });
 
 export const store = configureStore({
