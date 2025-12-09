@@ -15,7 +15,7 @@ const initialState: ILoginSchema = {
 };
 
 const loginSliceTest = createSlice({
-  name: 'features/loin-by-username',
+  name: 'features/login-by-username',
   initialState,
 
   reducers: {

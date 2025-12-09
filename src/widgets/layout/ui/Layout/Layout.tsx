@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { useInfiniteScroll } from 'shared/hooks';
 
 import styles from './Layout.module.scss';
+import { useScroll } from '../../hooks';
 
 type TLayoutProps = {
   children: ReactNode;
@@ -19,8 +20,10 @@ export const Layout = memo((props: TLayoutProps) => {
 
   useInfiniteScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
 
+  const { onScroll } = useScroll({ wrapperRef });
+
   return (
-    <section ref={wrapperRef} className={cn(styles.layout, {}, [className])}>
+    <section onScroll={onScroll} ref={wrapperRef} className={cn(styles.layout, {}, [className])}>
       {children}
       <div ref={triggerRef} />
     </section>
