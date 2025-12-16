@@ -44,7 +44,7 @@ const articleListSlice = createSlice({
       .addCase(fetchArticleList.fulfilled, (state, { payload }: PayloadAction<IArticle[]>) => {
         articleListAdapter.addMany(state, payload);
         state.isLoading = false;
-        state.hasMore = payload.length > 0;
+        state.hasMore = payload.length >= (state.limit ?? 0);
       })
       .addCase(fetchArticleList.rejected, (state, action) => {
         state.isLoading = false;
