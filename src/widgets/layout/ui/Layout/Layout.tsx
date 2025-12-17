@@ -25,7 +25,7 @@ export const Layout = memo((props: TLayoutProps) => {
   return (
     <section onScroll={onScroll} ref={wrapperRef} className={cn(styles.layout, {}, [className])}>
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}
     </section>
   );
 });
