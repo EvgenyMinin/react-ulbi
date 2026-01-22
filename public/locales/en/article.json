@@ -4,6 +4,10 @@
   "comments": "Comments",
   "buttons": {
     "backToList": "Back to list",
-    "more": "More"
-  }
+    "more": "More",
+    "edit": "Edit",
+    "create": "Create new article"
+  },
+  "editPageTitle": "Edit article",
+  "createPageTitle": "Create new article"
 }
