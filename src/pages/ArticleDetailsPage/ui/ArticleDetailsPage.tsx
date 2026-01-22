@@ -1,7 +1,7 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/providers';
 
@@ -15,22 +15,18 @@ import {
 import { ArticleDetails } from 'entities/article';
 import { CommentList } from 'entities/comment';
 
-import { RoutePath } from 'shared/config';
-import { Button, Text } from 'shared/ui';
+import { Text } from 'shared/ui';
 
 import styles from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
-const ArticleDetailsPage = () => {
+const ArticleDetailsPage = memo(() => {
   const { id = '' } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const { t } = useTranslation('article');
-  const navigate = useNavigate();
+
   const comments = useAppSelector(fetchArticleCommentsSelectors.articleCommentsSelector.selectAll);
   const isLoading = useAppSelector(fetchArticleCommentsSelectors.isLoadingSelector);
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -38,7 +34,7 @@ const ArticleDetailsPage = () => {
 
   return (
     <Layout>
-      <Button onClick={onBackToList}>{t('buttons.backToList')}</Button>
+      <ArticleDetailsPageHeader />
       <div className={styles.container}>
         <ArticleDetails articleId={id} />
         <div className={styles.commentListWrapper}>
@@ -48,6 +44,6 @@ const ArticleDetailsPage = () => {
       </div>
     </Layout>
   );
-};
+});
 
-export default memo(ArticleDetailsPage);
+export default ArticleDetailsPage;
