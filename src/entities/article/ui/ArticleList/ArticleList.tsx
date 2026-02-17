@@ -30,7 +30,7 @@ export const ArticleList = memo((props: TArticleListProps) => {
   const itemsPerRow = isBig ? 1 : 3;
   const rowCount = isBig ? articlesAmount : Math.ceil(articlesAmount / itemsPerRow);
 
-  const rowRenderer = ({ index, isScrolling, key, style }: ListRowProps) => {
+  const rowRenderer = ({ index, key, style }: ListRowProps) => {
     const items = [];
     const fromIndex = index * itemsPerRow;
     const toIndex = Math.min(fromIndex + itemsPerRow, articlesAmount);
@@ -54,10 +54,7 @@ export const ArticleList = memo((props: TArticleListProps) => {
   };
 
   return (
-    <WindowScroller
-      onScroll={() => console.log('SCROLL')}
-      scrollElement={document.getElementById(LAYOUT_ID) as Element}
-    >
+    <WindowScroller scrollElement={document.getElementById(LAYOUT_ID) as Element}>
       {({ width, height, registerChild, onChildScroll, isScrolling, scrollTop }) => (
         <div ref={registerChild} className={cn(styles.articleList, {}, [className, styles[view]])}>
           <List
