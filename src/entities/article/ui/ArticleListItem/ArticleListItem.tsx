@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { RoutePath } from 'shared/config';
 import { useHover } from 'shared/hooks';
-import { Button, Card, Text } from 'shared/ui';
+import { Button, Card, HStack, Text } from 'shared/ui';
 
 import styles from './ArticleListItem.module.scss';
 import { EArticleView, IArticle } from '../../lib';
@@ -33,15 +33,15 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
   const types = <Text text={article.type.join(', ')} className={styles.types} />;
   const title = <Text text={article.title} className={styles.title} />;
   const views = (
-    <div className={styles.views}>
+    <HStack gap={8}>
       <CIcon icon={cilLowVision} width={24} />
       <Text text={article.views} />
-    </div>
+    </HStack>
   );
 
   if (view === EArticleView.BIG) {
     return (
-      <div className={cn(styles.articleListItem, {}, [className, styles[view]])}>
+      <div className={cn('', {}, [className, styles[view]])}>
         <Card className={styles.card}>
           {title}
           {types}
@@ -55,16 +55,16 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
   }
 
   return (
-    <div {...bindHover} className={cn(styles.articleListItem, {}, [className, styles[view]])}>
+    <div {...bindHover} className={cn('', {}, [className, styles[view]])}>
       <Card className={styles.card} onClick={useOpenArticle}>
         <div className={styles.imageWrapper}>
           <img src={article.img} alt={article.title} className={styles.image} />
           <Text text={article.createdAt} className={styles.date} />
         </div>
-        <div className={styles.infoWrapper}>
+        <HStack justify='between' gap={4}>
           {types}
           {views}
-        </div>
+        </HStack>
         {title}
       </Card>
     </div>

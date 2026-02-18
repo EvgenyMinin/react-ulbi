@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { Skeleton, Text } from 'shared/ui';
+import { Skeleton, Text, VStack } from 'shared/ui';
 
 import styles from './CommentCard.module.scss';
 import { TCommentItem } from '../../lib';
@@ -18,10 +18,10 @@ export const CommentCard = memo((props: TCommentCardProps) => {
   }
 
   return (
-    <div className={styles.commentCard}>
+    <VStack gap={8} wide className={styles.commentCard}>
       <Text title={comment.user.username} />
 
       <Text text={comment.text} />
-    </div>
+    </VStack>
   );
 });

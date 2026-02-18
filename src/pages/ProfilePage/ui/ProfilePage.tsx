@@ -13,7 +13,7 @@ import {
   profileService,
 } from 'entities/profile';
 
-import { ETextTheme, Text } from 'shared/ui';
+import { ETextTheme, Text, VStack } from 'shared/ui';
 
 import { ProfilePageHeader } from './ProfilePageHeader';
 import { useInputChange } from '../lib/hooks';
@@ -52,25 +52,27 @@ const ProfilePage = () => {
 
   return (
     <Layout>
-      <ProfilePageHeader />
-      {Boolean(validateErrors?.length) &&
-        validateErrors.map(err => (
-          <Text text={err} key={validateErrorTranslates[err]} theme={ETextTheme.ERROR} />
-        ))}
-      <ProfileCard
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeFirstName={handleChangeFirstName}
-        onChangeLastName={handleChangeLastName}
-        onChangeAge={handleChangeAge}
-        onChangeCity={handleChangeCity}
-        onChangeUsername={handleChangeUsername}
-        onChangeAvatar={handleChangeAvatar}
-        onChangeCurrency={handleChangeCurrency}
-        onChangeCountry={handleChangeCountry}
-      />
+      <VStack wide>
+        <ProfilePageHeader />
+        {Boolean(validateErrors?.length) &&
+          validateErrors.map(err => (
+            <Text text={err} key={validateErrorTranslates[err]} theme={ETextTheme.ERROR} />
+          ))}
+        <ProfileCard
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+          onChangeFirstName={handleChangeFirstName}
+          onChangeLastName={handleChangeLastName}
+          onChangeAge={handleChangeAge}
+          onChangeCity={handleChangeCity}
+          onChangeUsername={handleChangeUsername}
+          onChangeAvatar={handleChangeAvatar}
+          onChangeCurrency={handleChangeCurrency}
+          onChangeCountry={handleChangeCountry}
+        />
+      </VStack>
     </Layout>
   );
 };

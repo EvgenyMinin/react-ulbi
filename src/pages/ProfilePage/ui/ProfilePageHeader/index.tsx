@@ -6,10 +6,9 @@ import { useAppSelector } from 'app/providers';
 
 import { profileSelectors } from 'entities/profile';
 
-import { Button, EButtonTheme, Text } from 'shared/ui';
+import { Button, EButtonTheme, HStack, Text } from 'shared/ui';
 
 import { useHeaderActions } from './lib';
-import styles from './styles.module.scss';
 
 export const ProfilePageHeader = () => {
   const { t } = useTranslation('profile');
@@ -37,9 +36,9 @@ export const ProfilePageHeader = () => {
   );
 
   return (
-    <div className={styles.profilePageHeader}>
+    <HStack gap={32} align='center' justify='between' wide>
       <Text title={t('profile')} />
-      <div className={styles.actionContainer}>{button}</div>
-    </div>
+      <HStack>{button}</HStack>
+    </HStack>
   );
 };
