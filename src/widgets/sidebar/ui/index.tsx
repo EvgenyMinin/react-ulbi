@@ -2,7 +2,15 @@ import { memo, useMemo, useState } from 'react';
 
 import cn from 'classnames';
 
-import { Button, EButtonSize, EButtonTheme, LangSwitcher, ThemeSwitcher } from 'shared/ui';
+import {
+  Button,
+  EButtonSize,
+  EButtonTheme,
+  HStack,
+  LangSwitcher,
+  ThemeSwitcher,
+  VStack,
+} from 'shared/ui';
 
 import { SidebarItem } from './sidebar-item';
 import styles from './styles.module.scss';
@@ -51,11 +59,12 @@ export const Sidebar = memo(() => {
         {collapsed ? '>' : '<'}
       </Button>
 
-      <div className={styles.items}>{menu}</div>
-      <div className={styles.switchers}>
+      <VStack className={styles.items}>{menu}</VStack>
+
+      <HStack justify='center'>
         <ThemeSwitcher />
         <LangSwitcher />
-      </div>
+      </HStack>
     </menu>
   );
 });

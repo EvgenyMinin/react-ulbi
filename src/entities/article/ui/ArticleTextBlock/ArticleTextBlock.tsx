@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
 
-import { IArticleTextBlock } from 'entities/article/lib';
-
 import { Text } from 'shared/ui';
 
 import styles from './ArticleTextBlock.module.scss';
+import { IArticleTextBlock } from '../../lib/types';
 
 type TArticleTextBlockProps = {
   block: IArticleTextBlock;

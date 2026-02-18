@@ -11,3 +11,4 @@ export * from './select';
 export * from './Skeleton';
 export * from './CodeBlock';
 export * from './Card';
+export * from './Stack';

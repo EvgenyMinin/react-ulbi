@@ -17,7 +17,7 @@ export const ArticleListItemSkeleton = memo((props: TArticleListItemSkeletonProp
 
   if (view === EArticleView.BIG) {
     return (
-      <div className={cn(styles.articleListItem, {}, [className, styles[view]])}>
+      <div className={cn('', {}, [className, styles[view]])}>
         <Card className={styles.card}>
           <Skeleton width={200} height={24} />
           <Skeleton width={150} height={24} />
@@ -31,7 +31,7 @@ export const ArticleListItemSkeleton = memo((props: TArticleListItemSkeletonProp
   }
 
   return (
-    <div className={cn(styles.articleListItem, {}, [className, styles[view]])}>
+    <div className={cn('', {}, [className, styles[view]])}>
       <Card className={styles.card}>
         <div className={styles.imageWrapper}>
           <Skeleton width={200} height={200} className={styles.image} />
