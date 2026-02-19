@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
 import cn from 'classnames';
 
@@ -11,7 +11,9 @@ type FlexAlign = 'start' | 'center' | 'end';
 type FlexDirection = 'row' | 'column';
 type FlexGap = 4 | 8 | 16 | 32;
 
-export type TFlexProps = {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export type TFlexProps = DivProps & {
   children: ReactNode;
   className?: string;
   justify?: FlexJustify;
