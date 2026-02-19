@@ -23,7 +23,7 @@ export const Sidebar = memo(() => {
     setCollapsed(prev => !prev);
   };
 
-  const menu = useMemo(() => {
+  const aside = useMemo(() => {
     if (collapsed) {
       return (
         <>
@@ -44,7 +44,7 @@ export const Sidebar = memo(() => {
   }, [collapsed]);
 
   return (
-    <menu
+    <aside
       className={cn(styles.sidebar, { [styles.collapsed]: collapsed }, [])}
       data-testid='sidebar'
     >
@@ -59,12 +59,12 @@ export const Sidebar = memo(() => {
         {collapsed ? '>' : '<'}
       </Button>
 
-      <VStack className={styles.items}>{menu}</VStack>
+      <VStack className={styles.items}>{aside}</VStack>
 
       <HStack justify='center'>
         <ThemeSwitcher />
         <LangSwitcher />
       </HStack>
-    </menu>
+    </aside>
   );
 });
