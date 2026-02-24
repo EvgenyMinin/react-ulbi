@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ECountry } from 'shared/lib';
-import { Select } from 'shared/ui';
+import { ListBox } from 'shared/ui';
 
 import { COUNTRIES } from '../mock';
 
@@ -24,6 +24,12 @@ export const CountrySelect = memo(({ onChange, ...rest }: TCountrySelectProps) =
   );
 
   return (
-    <Select label={t('countryLabel')} options={COUNTRIES} onChange={onChangeHandler} {...rest} />
+    <ListBox
+      label={t('countryLabel')}
+      defaultValue={t('countryLabel')}
+      items={COUNTRIES}
+      onChange={onChangeHandler}
+      {...rest}
+    />
   );
 });

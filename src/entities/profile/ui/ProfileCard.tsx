@@ -112,7 +112,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('avatarPlaceholder')}
         onChange={onChangeAvatar}
       />
+
       <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
+
       <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} />
     </VStack>
   );

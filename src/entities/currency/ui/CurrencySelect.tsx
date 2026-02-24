@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ECurrency } from 'shared/lib';
-import { Select } from 'shared/ui';
+import { ListBox } from 'shared/ui';
 
 import { CURRENCIES } from '../mock';
 
@@ -24,6 +24,12 @@ export const CurrencySelect = memo(({ onChange, ...rest }: TCurrencySelectProps)
   );
 
   return (
-    <Select label={t('currencyLabel')} options={CURRENCIES} onChange={onChangeHandler} {...rest} />
+    <ListBox
+      label={t('currencyLabel')}
+      defaultValue={t('currencyLabel')}
+      items={CURRENCIES}
+      onChange={onChangeHandler}
+      {...rest}
+    />
   );
 });
