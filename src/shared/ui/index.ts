@@ -13,3 +13,4 @@ export * from './CodeBlock';
 export * from './Card';
 export * from './Stack';
 export * from './ListBox';
+export * from './Dropdown';

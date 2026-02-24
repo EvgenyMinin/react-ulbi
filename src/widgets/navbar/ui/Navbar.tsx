@@ -9,7 +9,8 @@ import { LoginModal } from 'features/login-by-username';
 
 import { userSelectors, userSlice } from 'entities/user';
 
-import { Button, EButtonTheme } from 'shared/ui';
+import { RoutePath } from 'shared/config';
+import { Button, Dropdown, EButtonTheme } from 'shared/ui';
 
 import styles from './Navbar.module.scss';
 
@@ -32,9 +33,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (userAuth) {
     return (
       <header className={cn(styles.navbar, {}, [className])}>
-        <Button className={styles.links} theme={EButtonTheme.CLEAR_INVERTED} onClick={handleLogOut}>
-          {t('logout')}
-        </Button>
+        <Dropdown
+          trigger={t('logout')}
+          items={[
+            { content: t('logout'), onClick: handleLogOut },
+            { href: RoutePath.profile, content: 'Профиль' },
+          ]}
+          className={styles.links}
+        />
       </header>
     );
   }
