@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { IProfile } from 'entities/profile';
+
 import { IError } from 'shared/lib';
 
-import { fetchProfileData, updateProfileData } from './services';
-import { IProfile, IProfileSchema } from '../lib';
+import { updateProfileData } from './services';
+import { IProfileSchema } from '../lib/types';
 
 const initialState: IProfileSchema = {
   data: undefined,
@@ -13,7 +15,7 @@ const initialState: IProfileSchema = {
 };
 
 export const profileSlice = createSlice({
-  name: 'entities/profile',
+  name: 'feature/editable-profile-card',
   initialState,
 
   reducers: {
@@ -35,19 +37,6 @@ export const profileSlice = createSlice({
 
   extraReducers(builder) {
     builder
-      .addCase(fetchProfileData.pending, state => {
-        state.error = undefined;
-        state.isLoading = true;
-      })
-      .addCase(fetchProfileData.fulfilled, (state, { payload }: PayloadAction<IProfile>) => {
-        state.data = payload;
-        state.form = payload;
-        state.isLoading = false;
-      })
-      .addCase(fetchProfileData.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error as IError;
-      })
       .addCase(updateProfileData.pending, state => {
         state.validateErrors = undefined;
         state.isLoading = true;

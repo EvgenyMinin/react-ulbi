@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { useAppDispatch } from 'app/providers';
 
-import { profileService, profileSlice } from 'entities/profile';
+import { profileService, profileSlice } from 'features/editable-profile-card';
 
 interface IUseHeaderActions {
   handleEdit: () => void;

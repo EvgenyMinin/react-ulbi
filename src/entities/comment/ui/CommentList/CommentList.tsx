@@ -14,10 +14,11 @@ type TCommentListProps = {
 
 export const CommentList = memo((props: TCommentListProps) => {
   const { comments, isLoading } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('article');
 
   return (
     <VStack wide>
+      <Text title={t('comments')} />
       {comments?.length ? (
         comments.map(comment => (
           <CommentCard isLoading={isLoading} key={comment.id} comment={comment} />

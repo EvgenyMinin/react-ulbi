@@ -5,21 +5,20 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import { layoutSlice } from 'widgets/layout';
 
+import { profileSlice } from 'features/editable-profile-card';
 import { fetchArticleCommentsSlice } from 'features/fetch-article-comments';
 import { fetchArticleListSlice } from 'features/fetch-article-list';
 import { loginSlice } from 'features/login-by-username';
 
 import { articleDetailsSlice } from 'entities/article';
 import { counterSlice } from 'entities/counter';
-import { profileReducer } from 'entities/profile';
 import { userSlice } from 'entities/user';
 
-import { $api } from 'shared/api';
+import { $api, rtkApi } from 'shared/api';
 
 const entities = combineReducers({
   counter: counterSlice.counterReducer,
   user: userSlice.reducer,
-  profile: profileReducer,
   articleDetails: articleDetailsSlice.reducer,
 });
 
@@ -27,6 +26,7 @@ const features = combineReducers({
   loginForm: loginSlice.reducer,
   fetchArticleComments: fetchArticleCommentsSlice.reducer,
   fetchArticleList: fetchArticleListSlice.reducer,
+  profile: profileSlice.profileReducer,
 });
 
 const widgets = combineReducers({
@@ -37,6 +37,7 @@ const rootReducer = combineReducers({
   entities,
   features,
   widgets,
+  [rtkApi.reducerPath]: rtkApi.reducer,
 });
 
 export const store = configureStore({
@@ -49,7 +50,7 @@ export const store = configureStore({
           api: $api,
         },
       },
-    }),
+    }).concat(rtkApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
