@@ -2,11 +2,13 @@ import { Selector, createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from 'app/providers';
 
+import { IProfile } from 'entities/profile';
+
 import { IError } from 'shared/lib';
 
-import { EValidateProfileError, IProfile } from '../lib';
+import { EValidateProfileError } from '../lib/types';
 
-export const getProfileState = (state: RootState) => state.entities.profile;
+export const getProfileState = (state: RootState) => state.features.profile;
 
 export const profileSelector: Selector<RootState, IProfile | undefined> = createSelector(
   getProfileState,

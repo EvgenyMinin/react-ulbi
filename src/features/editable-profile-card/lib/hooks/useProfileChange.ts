@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 
 import { useAppDispatch } from 'app/providers';
 
-import { profileActions } from 'entities/profile';
-
 import { NUMBERS } from 'shared/consts';
 import { ECountry, ECurrency } from 'shared/lib';
+
+import { profileActions } from '../../model/slice';
 
 interface IUseInputChange {
   handleChangeFirstName: (value?: string) => void;
@@ -18,7 +18,7 @@ interface IUseInputChange {
   handleChangeCountry: (country: ECountry) => void;
 }
 
-export const useInputChange = (): IUseInputChange => {
+export const useProfileChange = (): IUseInputChange => {
   const dispatch = useAppDispatch();
 
   const handleChangeFirstName = useCallback(

@@ -3,18 +3,14 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'app/providers';
-
 import { Layout } from 'widgets/layout';
 
-import { ArticleViewSelector, fetchArticleListSelectors } from 'features/fetch-article-list';
-
-import { ArticleList } from 'entities/article';
+import { ArticleViewSelector } from 'features/fetch-article-list';
 
 import { RoutePath } from 'shared/config';
-import { Button, EButtonTheme } from 'shared/ui';
+import { Button, EButtonTheme, HStack } from 'shared/ui';
 
-import styles from './ArticlePage.module.scss';
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { useChangeView, useFetchArticleList } from '../hooks';
 
 const ArticlePage = () => {
@@ -22,10 +18,6 @@ const ArticlePage = () => {
   const { t } = useTranslation('article');
 
   const { onLoadNextPart } = useFetchArticleList();
-
-  const articles = useAppSelector(fetchArticleListSelectors.articleListSelector.selectAll);
-  const isLoading = useAppSelector(fetchArticleListSelectors.isLoadingSelector);
-  const view = useAppSelector(fetchArticleListSelectors.articleViewSelector);
 
   const onChangeView = useChangeView();
 
@@ -35,13 +27,13 @@ const ArticlePage = () => {
 
   return (
     <Layout onScrollEnd={onLoadNextPart}>
-      <div className={styles.actionsWrapper}>
+      <HStack align='center' justify='between'>
         <Button theme={EButtonTheme.OUTLINE} onClick={onCreateArticle}>
           {t('buttons.create')}
         </Button>
         <ArticleViewSelector onViewClick={onChangeView} />
-      </div>
-      <ArticleList view={view} articles={articles} isLoading={isLoading} />
+      </HStack>
+      <ArticleInfiniteList />
     </Layout>
   );
 };

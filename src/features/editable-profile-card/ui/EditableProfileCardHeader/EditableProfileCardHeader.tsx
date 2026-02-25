@@ -1,20 +1,23 @@
-import { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
 import { useAppSelector } from 'app/providers';
 
-import { profileSelectors } from 'entities/profile';
-
 import { Button, EButtonTheme, HStack, Text } from 'shared/ui';
 
-import { useHeaderActions } from './lib';
+import { useHeaderActions } from '../../lib/hooks';
+import { profileReadOnly } from '../../model/selectors';
 
-export const ProfilePageHeader = () => {
+type TEditableProfileCardHeaderProps = {
+  className?: string;
+};
+
+export const EditableProfileCardHeader = memo((props: TEditableProfileCardHeaderProps) => {
   const { t } = useTranslation('profile');
   const { handleEdit, handleDecline, handleSave } = useHeaderActions();
 
-  const readOnly = useAppSelector(profileSelectors.profileReadOnly);
+  const readOnly = useAppSelector(profileReadOnly);
 
   const button = useMemo(
     () =>
@@ -41,4 +44,4 @@ export const ProfilePageHeader = () => {
       <HStack>{button}</HStack>
     </HStack>
   );
-};
+});
