@@ -17,7 +17,7 @@ import { EditableProfileCardHeader } from '../EditableProfileCardHeader';
 export const EditableProfileCard = memo(() => {
   const { t } = useTranslation('profile');
 
-  const { isLoading, data: formData } = useGetProfileQuery({});
+  const { isLoading, data: formData } = useGetProfileQuery();
 
   const error = useAppSelector(profileSelectors.profileError);
   const readonly = useAppSelector(profileSelectors.profileReadOnly);
@@ -41,10 +41,6 @@ export const EditableProfileCard = memo(() => {
     handleChangeLastName,
     handleChangeUsername,
   } = useProfileChange();
-
-  // useEffect(() => {
-  //   dispatch(profileService.fetchProfileData());
-  // }, [dispatch]);
 
   return (
     <VStack>

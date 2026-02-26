@@ -14,6 +14,7 @@ type TArticleListProps = {
   view: EArticleView;
   className?: string;
   isLoading?: boolean;
+  virtualized?: boolean;
 };
 
 const getSkeletons = (view: EArticleView) =>
@@ -22,7 +23,7 @@ const getSkeletons = (view: EArticleView) =>
     .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList = memo((props: TArticleListProps) => {
-  const { className, articles, view = EArticleView.SMALL, isLoading } = props;
+  const { className, articles, view = EArticleView.SMALL, isLoading, virtualized = true } = props;
   const articlesAmount = articles.length;
 
   const isBig = view === EArticleView.BIG;
@@ -57,17 +58,23 @@ export const ArticleList = memo((props: TArticleListProps) => {
     <WindowScroller scrollElement={document.getElementById(LAYOUT_ID) as Element}>
       {({ width, height, registerChild, onChildScroll, isScrolling, scrollTop }) => (
         <div ref={registerChild} className={cn(styles.articleList, {}, [className, styles[view]])}>
-          <List
-            height={height ?? 160}
-            rowHeight={isBig ? 160 : 300}
-            width={width ? width - 80 : 700}
-            rowRenderer={rowRenderer}
-            rowCount={rowCount}
-            onScroll={onChildScroll}
-            isScrolling={isScrolling}
-            scrollTop={scrollTop}
-            autoHeight
-          />
+          {virtualized ? (
+            <List
+              height={height ?? 160}
+              rowHeight={isBig ? 160 : 300}
+              width={width ? width - 80 : 700}
+              rowRenderer={rowRenderer}
+              rowCount={rowCount}
+              onScroll={onChildScroll}
+              isScrolling={isScrolling}
+              scrollTop={scrollTop}
+              autoHeight
+            />
+          ) : (
+            articles.map(article => (
+              <ArticleListItem key={article.id} article={article} view={view} />
+            ))
+          )}
           {isLoading && getSkeletons(view)}
         </div>
       )}
