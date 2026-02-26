@@ -9,7 +9,7 @@ import styles from './Flex.module.scss';
 type FlexJustify = 'start' | 'center' | 'end' | 'between';
 type FlexAlign = 'stretch' | 'start' | 'center' | 'end';
 type FlexDirection = 'row' | 'column';
-type FlexGap = 0 | 4 | 8 | 16 | 32;
+type FlexGap = 4 | 8 | 16 | 32;
 
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
@@ -42,7 +42,6 @@ const directionClasses: Record<FlexDirection, string> = {
 };
 
 const gapClasses: Record<FlexGap, string> = {
-  '0': styles.gap0,
   '4': styles.gap4,
   '8': styles.gap8,
   '16': styles.gap16,
