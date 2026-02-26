@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+.alignStretch {
+  align-items: stretch;
+}
+
 .alignStart {
   align-items: flex-start;
 }
@@ -38,6 +42,10 @@
   flex-direction: column;
 }
 
+.gap0 {
+  gap: 0px;
+}
+
 .gap4 {
   gap: 4px;
 }
@@ -52,8 +60,4 @@
 
 .gap32 {
   gap: 32px;
-}
-
-.wide {
-  width: 100%;
 }

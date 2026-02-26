@@ -39,7 +39,7 @@ export const EditableProfileCardHeader = memo((props: TEditableProfileCardHeader
   );
 
   return (
-    <HStack gap={32} align='center' justify='between' wide>
+    <HStack gap={32} align='center' justify='between'>
       <Text title={t('profile')} />
       <HStack>{button}</HStack>
     </HStack>

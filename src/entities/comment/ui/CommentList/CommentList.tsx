@@ -17,7 +17,7 @@ export const CommentList = memo((props: TCommentListProps) => {
   const { t } = useTranslation('article');
 
   return (
-    <VStack wide>
+    <VStack>
       <Text title={t('comments')} />
       {comments?.length ? (
         comments.map(comment => (

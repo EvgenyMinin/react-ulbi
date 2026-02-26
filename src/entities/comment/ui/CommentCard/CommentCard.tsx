@@ -18,7 +18,7 @@ export const CommentCard = memo((props: TCommentCardProps) => {
   }
 
   return (
-    <VStack gap={8} wide className={styles.commentCard}>
+    <VStack gap={8} className={styles.commentCard}>
       <Text title={comment.user.username} />
 
       <Text text={comment.text} />

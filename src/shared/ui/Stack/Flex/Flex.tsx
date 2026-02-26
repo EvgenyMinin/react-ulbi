@@ -7,9 +7,9 @@ import { Mods } from 'shared/lib';
 import styles from './Flex.module.scss';
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between';
-type FlexAlign = 'start' | 'center' | 'end';
+type FlexAlign = 'stretch' | 'start' | 'center' | 'end';
 type FlexDirection = 'row' | 'column';
-type FlexGap = 4 | 8 | 16 | 32;
+type FlexGap = 0 | 4 | 8 | 16 | 32;
 
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
@@ -20,7 +20,6 @@ export type TFlexProps = DivProps & {
   align?: FlexAlign;
   direction?: FlexDirection;
   gap?: FlexGap;
-  wide?: boolean;
 };
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -32,6 +31,7 @@ const justifyClasses: Record<FlexJustify, string> = {
 
 const alignClasses: Record<FlexAlign, string> = {
   start: styles.alignStart,
+  stretch: styles.alignStretch,
   center: styles.alignCenter,
   end: styles.alignEnd,
 };
@@ -42,6 +42,7 @@ const directionClasses: Record<FlexDirection, string> = {
 };
 
 const gapClasses: Record<FlexGap, string> = {
+  '0': styles.gap0,
   '4': styles.gap4,
   '8': styles.gap8,
   '16': styles.gap16,
@@ -50,13 +51,12 @@ const gapClasses: Record<FlexGap, string> = {
 
 export const Flex = (props: TFlexProps) => {
   const {
-    align = 'center',
+    align = 'stretch',
     justify = 'start',
     direction = 'row',
     gap = '16',
     children,
     className,
-    wide,
   } = props;
 
   const classes = [
@@ -67,9 +67,7 @@ export const Flex = (props: TFlexProps) => {
     gapClasses[gap],
   ];
 
-  const mods: Mods = {
-    [styles.wide]: wide,
-  };
+  const mods: Mods = {};
 
   return <div className={cn(styles.flex, mods, classes)}>{children}</div>;
 };

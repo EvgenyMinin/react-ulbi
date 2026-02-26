@@ -39,7 +39,7 @@ export const ListBox: FC<TListBoxProps> = props => {
       onChange={onChange}
       disabled={readonly}
     >
-      <HStack gap={8}>
+      <HStack gap={8} align='center'>
         {label && <span>{`${label} >`}</span>}
         <ListboxButton disabled={readonly} className={styles.trigger}>
           <Button disabled={readonly}>{value ?? defaultValue}</Button>
