@@ -48,7 +48,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <HStack justify='center' wide className={cn(styles.profileCard, {}, [styles.loading])}>
+      <HStack justify='center' className={cn(styles.profileCard, {}, [styles.loading])}>
         <Loader />
       </HStack>
     );
@@ -56,7 +56,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error?.message) {
     return (
-      <HStack justify='center' wide className={cn(styles.profileCard, {}, [styles.error])}>
+      <HStack justify='center' className={cn(styles.profileCard, {}, [styles.error])}>
         <Text
           title={t('serverError')}
           text={t('refreshPage')}
@@ -68,9 +68,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
   }
 
   return (
-    <VStack justify='center' wide className={cn(styles.profileCard, mods)}>
+    <VStack justify='center' className={cn(styles.profileCard, mods)}>
       {data?.avatar && (
-        <HStack justify='center' wide>
+        <HStack justify='center'>
           <Avatar src={data.avatar} />
         </HStack>
       )}

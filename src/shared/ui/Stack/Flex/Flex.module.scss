@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+.alignStretch {
+  align-items: stretch;
+}
+
 .alignStart {
   align-items: flex-start;
 }
@@ -52,8 +56,4 @@
 
 .gap32 {
   gap: 32px;
-}
-
-.wide {
-  width: 100%;
 }
