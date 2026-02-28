@@ -23,8 +23,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   const dispatch = useAppDispatch();
   const userAuth = useAppSelector(userSelectors.userAuthData);
+  const isAdmin = useAppSelector(userSelectors.isAdminRoleSelector);
+  const isManager = useAppSelector(userSelectors.isManagerRoleSelector);
 
   const [isOpen, toggleOpen] = useReducer(prev => !prev, false);
+
+  const isAdminAvailable = isAdmin || isManager;
 
   const handleLogOut = () => {
     dispatch(userSlice.actions.logOut());
@@ -36,8 +40,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <Dropdown
           trigger={t('logout')}
           items={[
+            ...(isAdminAvailable ? [{ href: RoutePath.admin_panel, content: t('admin') }] : []),
+            { href: RoutePath.profile, content: t('profile') },
             { content: t('logout'), onClick: handleLogOut },
-            { href: RoutePath.profile, content: 'Профиль' },
           ]}
           className={styles.links}
         />

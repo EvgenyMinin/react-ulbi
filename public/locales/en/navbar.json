@@ -1,4 +1,6 @@
 {
-  "login": "LogIn",
-  "logout": "LogOut"
+  "login": "Log in",
+  "logout": "Log out",
+  "profile": "Profile",
+  "admin": "Admin"
 }
