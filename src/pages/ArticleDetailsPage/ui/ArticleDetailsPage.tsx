@@ -16,10 +16,13 @@ const ArticleDetailsPage = memo(() => {
 
   return (
     <Layout>
-      <ArticleDetailsPageHeader />
-      <VStack gap={32}>
-        <ArticleDetails articleId={id} />
-        <ArticleDetailsComments id={id} />
+      <VStack gap={16}>
+        <ArticleDetailsPageHeader />
+
+        <VStack gap={32}>
+          <ArticleDetails articleId={id} />
+          <ArticleDetailsComments id={id} />
+        </VStack>
       </VStack>
     </Layout>
   );

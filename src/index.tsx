@@ -10,9 +10,14 @@ import 'app/styles/index.scss';
 import 'shared/config/i18n/i18n';
 
 const container = document.getElementById('root');
-const root = container ? createRoot(container) : null;
 
-root?.render(
+if (!container) {
+  throw new Error('Контейнер root не найден. Не удалось вмонтировать React приложение');
+}
+
+const root = createRoot(container);
+
+root.render(
   <StoreProvider>
     <BrowserRouter>
       <ErrorBoundary>
