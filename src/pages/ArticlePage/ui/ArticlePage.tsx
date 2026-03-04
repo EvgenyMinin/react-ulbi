@@ -8,7 +8,7 @@ import { Layout } from 'widgets/layout';
 import { ArticleViewSelector } from 'features/fetch-article-list';
 
 import { RoutePath } from 'shared/config';
-import { Button, EButtonTheme, HStack } from 'shared/ui';
+import { Button, EButtonTheme, HStack, VStack } from 'shared/ui';
 
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { useChangeView, useFetchArticleList } from '../hooks';
@@ -27,13 +27,17 @@ const ArticlePage = () => {
 
   return (
     <Layout onScrollEnd={onLoadNextPart}>
-      <HStack align='center' justify='between'>
-        <Button theme={EButtonTheme.OUTLINE} onClick={onCreateArticle}>
-          {t('buttons.create')}
-        </Button>
-        <ArticleViewSelector onViewClick={onChangeView} />
-      </HStack>
-      <ArticleInfiniteList />
+      <VStack gap={16}>
+        <HStack align='center' justify='between'>
+          <Button theme={EButtonTheme.OUTLINE} onClick={onCreateArticle}>
+            {t('buttons.create')}
+          </Button>
+
+          <ArticleViewSelector onViewClick={onChangeView} />
+        </HStack>
+
+        <ArticleInfiniteList />
+      </VStack>
     </Layout>
   );
 };
