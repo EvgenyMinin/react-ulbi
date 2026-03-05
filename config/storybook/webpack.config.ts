@@ -17,7 +17,9 @@ export default ({ config }: { config: Configuration }) => {
 
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push('ts', '.tsx');
-  config.module?.rules?.push(buildCssLoader(true));
+  config.module?.rules?.push(
+    buildCssLoader({ isDev: true, paths, mode: 'development', port: 3000, apiUrl: '' })
+  );
 
   if (config.module?.rules) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

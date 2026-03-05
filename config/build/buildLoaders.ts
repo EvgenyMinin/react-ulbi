@@ -1,20 +1,14 @@
 import { RuleSetRule } from 'webpack';
 
-import {
-  buildBabelLoader,
-  buildCssLoader,
-  buildFileLoader,
-  buildSvgLoader,
-  buildTypeScriptLoader,
-} from './loaders';
+import { buildBabelLoader, buildCssLoader, buildFileLoader, buildSvgLoader } from './loaders';
 import { BuildOptions } from './types/config';
 
-export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): RuleSetRule[] {
   const svgLoader = buildSvgLoader();
   const fileLoader = buildFileLoader();
-  const babelLoader = buildBabelLoader(isDev);
-  const cssLoader = buildCssLoader(isDev);
-  const typeScriptLoader = buildTypeScriptLoader();
+  const codeBabelLoader = buildBabelLoader(options);
+  const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
+  const cssLoader = buildCssLoader(options);
 
-  return [fileLoader, svgLoader, babelLoader, typeScriptLoader, cssLoader];
+  return [fileLoader, svgLoader, codeBabelLoader, tsxBabelLoader, cssLoader];
 }
