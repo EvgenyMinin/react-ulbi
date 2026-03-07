@@ -4,7 +4,6 @@ import cn from 'classnames';
 
 import { Skeleton, VStack } from 'shared/ui';
 
-import styles from './NotificationList.module.scss';
 import { useGetNotificationsQuery } from '../../api';
 import { NotificationItem } from '../NotificationItem';
 
@@ -27,7 +26,7 @@ export const NotificationList = memo((props: TNotificationListProps) => {
   }
 
   return (
-    <VStack gap={8} className={cn(styles.notificationList, {}, [className])}>
+    <VStack gap={8} className={cn('', {}, [className])}>
       {data?.map(item => <NotificationItem key={item.id} item={item} />)}
     </VStack>
   );
