@@ -18,7 +18,7 @@ export const NotificationList = memo((props: TNotificationListProps) => {
 
   if (isLoading) {
     return (
-      <VStack gap={8} className={cn(styles.notificationList, {}, [className])}>
+      <VStack gap={8} className={cn('', {}, [className])}>
         <Skeleton width='100%' border='8px' height={150} />
         <Skeleton width='100%' border='8px' height={150} />
         <Skeleton width='100%' border='8px' height={150} />
