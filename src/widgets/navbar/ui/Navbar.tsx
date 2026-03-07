@@ -3,14 +3,15 @@ import { memo, useReducer } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector } from 'app/providers';
+import { useAppSelector } from 'app/providers';
 
+import { DropdownAvatar } from 'features/dropdown-avatar';
 import { LoginModal } from 'features/login-by-username';
+import { NotificationButton } from 'features/notification-button';
 
-import { userSelectors, userSlice } from 'entities/user';
+import { userSelectors } from 'entities/user';
 
-import { RoutePath } from 'shared/config';
-import { Button, Dropdown, EButtonTheme } from 'shared/ui';
+import { Button, EButtonTheme, HStack } from 'shared/ui';
 
 import styles from './Navbar.module.scss';
 
@@ -21,31 +22,17 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation('navbar');
 
-  const dispatch = useAppDispatch();
   const userAuth = useAppSelector(userSelectors.userAuthData);
-  const isAdmin = useAppSelector(userSelectors.isAdminRoleSelector);
-  const isManager = useAppSelector(userSelectors.isManagerRoleSelector);
 
   const [isOpen, toggleOpen] = useReducer(prev => !prev, false);
-
-  const isAdminAvailable = isAdmin || isManager;
-
-  const handleLogOut = () => {
-    dispatch(userSlice.actions.logOut());
-  };
 
   if (userAuth) {
     return (
       <header className={cn(styles.navbar, {}, [className])}>
-        <Dropdown
-          trigger={t('logout')}
-          items={[
-            ...(isAdminAvailable ? [{ href: RoutePath.admin_panel, content: t('admin') }] : []),
-            { href: RoutePath.profile, content: t('profile') },
-            { content: t('logout'), onClick: handleLogOut },
-          ]}
-          className={styles.links}
-        />
+        <HStack gap={16} className={styles.links}>
+          <NotificationButton />
+          <DropdownAvatar />
+        </HStack>
       </header>
     );
   }

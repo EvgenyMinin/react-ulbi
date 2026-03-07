@@ -12,6 +12,7 @@ const articles = JSON.parse(fs.readFileSync(path.join(__dirname, 'articles.json'
 const users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), 'utf-8'));
 const comments = JSON.parse(fs.readFileSync(path.join(__dirname, 'comments.json'), 'utf-8'));
 const profile = JSON.parse(fs.readFileSync(path.join(__dirname, 'profile.json'), 'utf-8'));
+const notifications = JSON.parse(fs.readFileSync(path.join(__dirname, 'notifications.json'), 'utf-8'));
 
 const db = {
   posts: posts.posts,
@@ -19,6 +20,7 @@ const db = {
   users: users.users,
   comments: comments.comments,
   profile: profile.profile,
+  notifications: notifications.notifications,
 };
 
 const router = jsonServer.router(db);
