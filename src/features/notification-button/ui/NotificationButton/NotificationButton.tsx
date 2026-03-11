@@ -1,9 +1,9 @@
 import React, { memo, useReducer } from 'react';
 
 import { cilBell } from '@coreui/icons';
-import { BrowserView, MobileView } from 'react-device-detect';
 import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from 'entities/notification';
 
