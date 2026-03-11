@@ -1,12 +1,13 @@
-import React, { memo } from 'react';
+import React, { memo, useReducer } from 'react';
 
 import { cilBell } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from 'entities/notification';
 
-import { Button, EButtonTheme, Popover } from 'shared/ui';
+import { Button, Drawer, EButtonTheme, Popover } from 'shared/ui';
 
 import styles from './NotificationButton.module.scss';
 
@@ -17,16 +18,28 @@ type TNotificationButtonProps = {
 export const NotificationButton = memo((props: TNotificationButtonProps) => {
   const { className } = props;
 
+  const [isOpen, toggleOpen] = useReducer(prev => !prev, false);
+
+  const trigger = (
+    <Button onClick={toggleOpen} theme={EButtonTheme.CLEAR}>
+      <CIcon icon={cilBell} width={20} color='var(--inverted-primary-color)' />
+    </Button>
+  );
+
   return (
-    <Popover
-      trigger={
-        <Button theme={EButtonTheme.CLEAR}>
-          <CIcon icon={cilBell} width={20} color='var(--inverted-primary-color)' />
-        </Button>
-      }
-      className={cn('', {}, [className])}
-    >
-      <NotificationList className={styles.notifications} />
-    </Popover>
+    <div>
+      <BrowserView>
+        <Popover trigger={trigger} className={cn('', {}, [className])}>
+          <NotificationList className={styles.notifications} />
+        </Popover>
+      </BrowserView>
+
+      <MobileView>
+        {trigger}
+        <Drawer isOpen={isOpen} onClose={toggleOpen}>
+          <NotificationList />
+        </Drawer>
+      </MobileView>
+    </div>
   );
 });
