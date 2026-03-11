@@ -14,6 +14,7 @@ import cn from 'classnames';
 import { Mods } from 'shared/lib';
 
 import styles from './styles.module.scss';
+import { Overlay } from '../Overlay';
 import { Portal } from '../portal';
 
 interface IModalProps {
@@ -45,10 +46,6 @@ export const Modal: FC<IModalProps> = ({ isOpen, onClose, className, children, l
       }, ANIMATION_DELAY);
     }
   }, [onClose]);
-
-  const handleContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -83,11 +80,9 @@ export const Modal: FC<IModalProps> = ({ isOpen, onClose, className, children, l
   return (
     <Portal>
       <div className={cn(styles.modal, mods, [className])}>
-        <div className={styles.overlay} onClick={handleCloseModal}>
-          <div className={styles.content} onClick={handleContentClick}>
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={handleCloseModal} />
+
+        <div className={styles.content}>{children}</div>
       </div>
     </Portal>
   );
