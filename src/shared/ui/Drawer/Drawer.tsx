@@ -1,11 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useCallback, useEffect } from 'react';
 
+import { a, useSpring, config } from '@react-spring/web';
+import { useDrag } from '@use-gesture/react';
 import cn from 'classnames';
 
 import { useTheme } from 'app/providers/ThemeProvider';
-
-import { useModal } from 'shared/hooks';
-import { Mods } from 'shared/lib';
 
 import styles from './Drawer.module.scss';
 import { Overlay } from '../Overlay';
@@ -19,26 +18,70 @@ type TDrawerProps = {
   className?: string;
 };
 
+const height = window.innerHeight - 100;
+
 export const Drawer = (props: TDrawerProps) => {
-  const { children, isOpen, lazy, onClose, className } = props;
+  const { children, isOpen, onClose, className } = props;
 
+  const [{ y }, api] = useSpring(() => ({ y: height }));
   const theme = useTheme();
-  const { close, isClosing, isMounted } = useModal({ animationDelay: 300, isOpen, onClose });
+  const openDrawer = useCallback(() => {
+    api.start({ y: 0, immediate: false });
+  }, [api]);
 
-  const mods: Mods = {
-    [styles.opened]: isOpen,
-    [styles.closing]: isClosing,
-  };
+  const close = useCallback(
+    (velocity = 0) => {
+      api.start({
+        y: height,
+        immediate: false,
+        config: { ...config.stiff, velocity },
+        onResolve: onClose,
+      });
+    },
+    [api, onClose]
+  );
 
-  if (lazy && !isMounted) {
+  const bind = useDrag(
+    ({ last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel }) => {
+      if (oy < -70) {
+        cancel();
+      }
+      if (last) {
+        if (oy > height * 0.5 || (vy > 0.5 && dy > 0)) {
+          close(vy);
+        } else {
+          openDrawer();
+        }
+      } else {
+        api.start({ y: oy, immediate: true });
+      }
+    },
+    { from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true }
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      openDrawer();
+    }
+  }, [isOpen, openDrawer]);
+
+  if (!isOpen) {
     return null;
   }
 
+  const display = y.to(py => (py < height ? 'block' : 'none'));
+
   return (
     <Portal>
-      <div className={cn(styles.drawer, mods, [className, theme, 'app_drawer'])}>
+      <div className={cn(styles.drawer, {}, [className, theme, 'app_drawer'])}>
         <Overlay onClick={close} />
-        <div className={styles.content}>{children}</div>
+        <a.div
+          className={styles.sheet}
+          style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+          {...bind()}
+        >
+          {children}
+        </a.div>
       </div>
     </Portal>
   );
