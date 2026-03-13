@@ -1,8 +1,8 @@
 import { createSelector, Selector } from '@reduxjs/toolkit';
 
-import { RootState } from 'app/providers';
+import { RootState } from '@/app/providers';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { commentsAdapter } from './adapter';
 

@@ -3,12 +3,12 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 
-import { ArticleViewSelector } from 'features/fetch-article-list';
+import { ArticleViewSelector } from '@/features/fetch-article-list';
 
-import { RoutePath } from 'shared/config';
-import { Button, EButtonTheme, HStack, VStack } from 'shared/ui';
+import { RoutePath } from '@/shared/config';
+import { Button, EButtonTheme, HStack, VStack } from '@/shared/ui';
 
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { useChangeView, useFetchArticleList } from '../hooks';

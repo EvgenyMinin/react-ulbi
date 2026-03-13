@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 
-import { useAppDispatch } from 'app/providers';
+import { useAppDispatch } from '@/app/providers';
 
-import { fetchArticleListSlice } from 'features/fetch-article-list';
+import { fetchArticleListSlice } from '@/features/fetch-article-list';
 
-import { EArticleView } from 'entities/article';
+import { EArticleView } from '@/entities/article';
 
 type TReturn = {
   (view: EArticleView): void;

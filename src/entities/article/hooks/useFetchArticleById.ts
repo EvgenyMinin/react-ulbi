@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch } from 'app/providers';
+import { useAppDispatch } from '@/app/providers';
 
 import { articleDetailsService } from '../model';
 

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IProfile } from 'entities/profile';
+import { IProfile } from '@/entities/profile';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { updateProfileData } from './services';
 import { IProfileSchema } from '../lib/types';

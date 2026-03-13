@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ECountry } from 'shared/lib';
+import { ECountry } from '@/shared/lib';
 
 import { CountrySelect } from './CurrencySelect';
 

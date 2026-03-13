@@ -3,15 +3,15 @@ import { memo, useReducer } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { DropdownAvatar } from 'features/dropdown-avatar';
-import { LoginModal } from 'features/login-by-username';
-import { NotificationButton } from 'features/notification-button';
+import { DropdownAvatar } from '@/features/dropdown-avatar';
+import { LoginModal } from '@/features/login-by-username';
+import { NotificationButton } from '@/features/notification-button';
 
-import { userSelectors } from 'entities/user';
+import { userSelectors } from '@/entities/user';
 
-import { Button, EButtonTheme, HStack } from 'shared/ui';
+import { Button, EButtonTheme, HStack } from '@/shared/ui';
 
 import styles from './Navbar.module.scss';
 

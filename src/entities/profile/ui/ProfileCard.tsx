@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { CountrySelect } from 'entities/country';
-import { CurrencySelect } from 'entities/currency';
+import { CountrySelect } from '@/entities/country';
+import { CurrencySelect } from '@/entities/currency';
 
-import { ECountry, ECurrency, IError, Mods } from 'shared/lib';
-import { Avatar, ETextAlign, ETextTheme, HStack, Input, Loader, Text, VStack } from 'shared/ui';
+import { ECountry, ECurrency, IError, Mods } from '@/shared/lib';
+import { Avatar, ETextAlign, ETextTheme, HStack, Input, Loader, Text, VStack } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 import { IProfile } from '../lib';

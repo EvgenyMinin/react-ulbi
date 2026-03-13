@@ -1,4 +1,4 @@
-import { ECountry, ECurrency, IError } from 'shared/lib';
+import { ECountry, ECurrency, IError } from '@/shared/lib';
 
 export enum EValidateProfileError {
   INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { fetchArticleById } from './services';
 import { IArticle, IArticleDetailsSchema } from '../lib';

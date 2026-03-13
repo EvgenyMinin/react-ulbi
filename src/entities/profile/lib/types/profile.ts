@@ -1,4 +1,4 @@
-import { ECountry, ECurrency } from 'shared/lib';
+import { ECountry, ECurrency } from '@/shared/lib';
 
 export interface IProfile {
   firstName?: string;

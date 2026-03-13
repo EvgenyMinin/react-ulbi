@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 
-import { Counter } from 'entities/counter';
+import { Counter } from '@/entities/counter';
 
 const MainPage = () => {
   const { t } = useTranslation('main');

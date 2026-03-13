@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 
-import { useAppDispatch } from 'app/providers';
+import { useAppDispatch } from '@/app/providers';
 
-import { NUMBERS } from 'shared/consts';
-import { ECountry, ECurrency } from 'shared/lib';
+import { NUMBERS } from '@/shared/consts';
+import { ECountry, ECurrency } from '@/shared/lib';
 
 import { profileActions } from '../../model/slice';
 

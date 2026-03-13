@@ -4,7 +4,7 @@ import { a, useSpring, config } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import cn from 'classnames';
 
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
 
 import styles from './Drawer.module.scss';
 import { Overlay } from '../Overlay';

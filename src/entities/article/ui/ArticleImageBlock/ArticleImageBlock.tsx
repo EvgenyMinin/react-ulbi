@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 
-import { IArticleImageBlock } from 'entities/article/lib';
+import { IArticleImageBlock } from '@/entities/article/lib';
 
-import { ETextAlign, Text } from 'shared/ui';
+import { ETextAlign, Text } from '@/shared/ui';
 
 import styles from './ArticleImageBlock.module.scss';
 

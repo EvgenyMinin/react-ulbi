@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 
 import { Navigate, useLocation } from 'react-router-dom';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { EUserRole, userSelectors } from 'entities/user';
+import { EUserRole, userSelectors } from '@/entities/user';
 
-import { RoutePath } from 'shared/config';
+import { RoutePath } from '@/shared/config';
 
 type TRequireAuthProps = {
   children: JSX.Element;

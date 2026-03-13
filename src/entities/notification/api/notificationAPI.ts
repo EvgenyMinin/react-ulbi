@@ -1,4 +1,4 @@
-import { rtkApi } from 'shared/api';
+import { rtkApi } from '@/shared/api';
 
 import { TNotificationItem } from '../lib/types';
 

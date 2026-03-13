@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 
 const AdminPanelPage = () => {
   const { t } = useTranslation('admin');

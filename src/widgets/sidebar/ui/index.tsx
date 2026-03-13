@@ -10,7 +10,7 @@ import {
   LangSwitcher,
   ThemeSwitcher,
   VStack,
-} from 'shared/ui';
+} from '@/shared/ui';
 
 import { SidebarItem } from './sidebar-item';
 import styles from './styles.module.scss';

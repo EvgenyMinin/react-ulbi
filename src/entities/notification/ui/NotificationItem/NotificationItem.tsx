@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import cn from 'classnames';
 
-import { Card, Text } from 'shared/ui';
+import { Card, Text } from '@/shared/ui';
 
 import styles from './NotificationItem.module.scss';
 import { TNotificationItem } from '../../lib/types';

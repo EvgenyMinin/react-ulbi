@@ -2,9 +2,9 @@ import { MutableRefObject, UIEvent, useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
-import { RootState, useAppDispatch, useAppSelector } from 'app/providers';
+import { RootState, useAppDispatch, useAppSelector } from '@/app/providers';
 
-import { useThrottle } from 'shared/hooks';
+import { useThrottle } from '@/shared/hooks';
 
 import { layoutSlice } from '../model';
 import { scrollSelector } from '../model/selectors';

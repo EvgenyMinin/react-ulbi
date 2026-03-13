@@ -4,11 +4,11 @@ import { cilCalendar, cilLowVision } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { EArticleBlockType, TArticleBlock } from 'entities/article/lib';
+import { EArticleBlockType, TArticleBlock } from '@/entities/article/lib';
 
-import { Avatar, ETextAlign, Skeleton, Text } from 'shared/ui';
+import { Avatar, ETextAlign, Skeleton, Text } from '@/shared/ui';
 
 import styles from './ArticleDetails.module.scss';
 import { useFetchArticleById } from '../../hooks';

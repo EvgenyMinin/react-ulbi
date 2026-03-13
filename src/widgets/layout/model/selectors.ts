@@ -1,6 +1,6 @@
 import { createSelector, Selector } from '@reduxjs/toolkit';
 
-import { RootState } from 'app/providers';
+import { RootState } from '@/app/providers';
 
 export const getLayoutState = (state: RootState) => state.widgets.layout;
 

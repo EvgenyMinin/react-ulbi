@@ -1,8 +1,8 @@
 import { Selector, createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from 'app/providers';
+import { RootState } from '@/app/providers';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { IArticle } from '../lib';
 

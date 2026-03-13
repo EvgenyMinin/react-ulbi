@@ -3,18 +3,18 @@ import { AxiosInstance } from 'axios';
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import { layoutSlice } from 'widgets/layout';
+import { layoutSlice } from '@/widgets/layout';
 
-import { profileSlice } from 'features/editable-profile-card';
-import { fetchArticleCommentsSlice } from 'features/fetch-article-comments';
-import { fetchArticleListSlice } from 'features/fetch-article-list';
-import { loginSlice } from 'features/login-by-username';
+import { profileSlice } from '@/features/editable-profile-card';
+import { fetchArticleCommentsSlice } from '@/features/fetch-article-comments';
+import { fetchArticleListSlice } from '@/features/fetch-article-list';
+import { loginSlice } from '@/features/login-by-username';
 
-import { articleDetailsSlice } from 'entities/article';
-import { counterSlice } from 'entities/counter';
-import { userSlice } from 'entities/user';
+import { articleDetailsSlice } from '@/entities/article';
+import { counterSlice } from '@/entities/counter';
+import { userSlice } from '@/entities/user';
 
-import { $api, rtkApi } from 'shared/api';
+import { $api, rtkApi } from '@/shared/api';
 
 const entities = combineReducers({
   counter: counterSlice.counterReducer,

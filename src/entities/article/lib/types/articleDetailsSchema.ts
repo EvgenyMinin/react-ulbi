@@ -1,4 +1,4 @@
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { IArticle } from './article';
 

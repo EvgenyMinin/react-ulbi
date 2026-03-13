@@ -2,7 +2,7 @@ import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
 import cn from 'classnames';
 
-import { Mods } from 'shared/lib';
+import { Mods } from '@/shared/lib';
 
 import styles from './Flex.module.scss';
 

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { loginByUsername } from './services';
 import { ILoginSchema } from '../lib';

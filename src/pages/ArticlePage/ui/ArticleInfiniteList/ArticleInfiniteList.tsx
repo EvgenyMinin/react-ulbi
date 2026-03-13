@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { fetchArticleListSelectors } from 'features/fetch-article-list';
+import { fetchArticleListSelectors } from '@/features/fetch-article-list';
 
-import { ArticleList } from 'entities/article';
+import { ArticleList } from '@/entities/article';
 
 export const ArticleInfiniteList = memo(() => {
   const articles = useAppSelector(fetchArticleListSelectors.articleListSelector.selectAll);

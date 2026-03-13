@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Modal } from 'shared/ui';
+import { Modal } from '@/shared/ui';
 
 import { LoginForm } from './LoginForm';
 

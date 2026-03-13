@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 
-import { IArticleCodeBlock } from 'entities/article/lib';
+import { IArticleCodeBlock } from '@/entities/article/lib';
 
-import { CodeBlock } from 'shared/ui';
+import { CodeBlock } from '@/shared/ui';
 
 import styles from './ArticleCodeBlock.module.scss';
 

@@ -2,8 +2,8 @@ import { memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { ECountry } from 'shared/lib';
-import { ListBox } from 'shared/ui';
+import { ECountry } from '@/shared/lib';
+import { ListBox } from '@/shared/ui';
 
 import { COUNTRIES } from '../mock';
 

@@ -6,9 +6,9 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { RoutePath } from 'shared/config';
-import { useHover } from 'shared/hooks';
-import { Button, Card, HStack, Text } from 'shared/ui';
+import { RoutePath } from '@/shared/config';
+import { useHover } from '@/shared/hooks';
+import { Button, Card, HStack, Text } from '@/shared/ui';
 
 import styles from './ArticleListItem.module.scss';
 import { EArticleView, IArticle } from '../../lib';

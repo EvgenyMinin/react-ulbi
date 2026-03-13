@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 
 const AboutPage = () => {
   const { t } = useTranslation('about');

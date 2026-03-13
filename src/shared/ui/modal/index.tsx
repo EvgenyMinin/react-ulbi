@@ -2,8 +2,8 @@ import { FC, ReactNode } from 'react';
 
 import cn from 'classnames';
 
-import { useModal } from 'shared/hooks';
-import { Mods } from 'shared/lib';
+import { useModal } from '@/shared/hooks';
+import { Mods } from '@/shared/lib';
 
 import styles from './styles.module.scss';
 import { Overlay } from '../Overlay';
