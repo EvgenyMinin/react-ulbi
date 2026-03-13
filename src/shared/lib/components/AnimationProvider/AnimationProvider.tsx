@@ -1,12 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-} from 'react';
+import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type SpringType = typeof import('@react-spring/web');
 type GestureType = typeof import('@use-gesture/react');
@@ -34,13 +26,13 @@ export const useAnimationLibs = () => {
 export const AnimationProvider = ({ children }: TAnimationProviderProps) => {
   const GestureRef = useRef<GestureType>();
   const SpringRef = useRef<SpringType>();
-  const [isLoaded, toggleLoaded] = useReducer(prev => !prev, false);
+  const [isLoaded, setLoaded] = useState(false);
 
   useEffect(() => {
     getAsyncAnimationModules().then(([Spring, Gesture]) => {
       SpringRef.current = Spring;
       GestureRef.current = Gesture;
-      toggleLoaded();
+      setLoaded(true);
     });
   }, []);
 
