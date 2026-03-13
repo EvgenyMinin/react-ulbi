@@ -2,11 +2,11 @@ import React, { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { ProfileCard } from 'entities/profile';
+import { ProfileCard } from '@/entities/profile';
 
-import { ETextTheme, Text, VStack } from 'shared/ui';
+import { ETextTheme, Text, VStack } from '@/shared/ui';
 
 import { useGetProfileQuery } from '../../api';
 import { useProfileChange } from '../../lib/hooks';

@@ -1,10 +1,10 @@
 import { createSelector, Selector } from '@reduxjs/toolkit';
 
-import { RootState } from 'app/providers';
+import { RootState } from '@/app/providers';
 
-import { EArticleView } from 'entities/article';
+import { EArticleView } from '@/entities/article';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { articleListAdapter } from './adapter';
 

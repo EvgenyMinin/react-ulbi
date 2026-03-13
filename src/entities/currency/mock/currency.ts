@@ -1,4 +1,4 @@
-import { TSelectOption } from 'shared/lib';
+import { TSelectOption } from '@/shared/lib';
 
 export const CURRENCIES: TSelectOption[] = [
   { value: 'RUB', content: 'RUB' },

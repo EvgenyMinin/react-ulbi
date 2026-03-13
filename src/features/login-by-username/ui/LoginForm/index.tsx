@@ -3,11 +3,11 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'app/providers';
+import { useAppDispatch, useAppSelector } from '@/app/providers';
 
-import { loginSelectors, loginServices, loginSlice } from 'features/login-by-username';
+import { loginSelectors, loginServices, loginSlice } from '@/features/login-by-username';
 
-import { Button, EButtonTheme, ETextTheme, Input, Text } from 'shared/ui';
+import { Button, EButtonTheme, ETextTheme, Input, Text } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 

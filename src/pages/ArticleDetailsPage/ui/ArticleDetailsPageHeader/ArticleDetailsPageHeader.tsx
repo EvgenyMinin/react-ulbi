@@ -4,12 +4,12 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { articleDetailsSelectors } from 'entities/article';
+import { articleDetailsSelectors } from '@/entities/article';
 
-import { RoutePath } from 'shared/config';
-import { Button } from 'shared/ui';
+import { RoutePath } from '@/shared/config';
+import { Button } from '@/shared/ui';
 
 import styles from './ArticleDetailsPageHeader.module.scss';
 import { canEditArticleSelector } from '../../model';

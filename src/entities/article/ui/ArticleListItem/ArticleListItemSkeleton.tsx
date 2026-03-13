@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import cn from 'classnames';
 
-import { Card, Skeleton } from 'shared/ui';
+import { Card, Skeleton } from '@/shared/ui';
 
 import styles from './ArticleListItem.module.scss';
 import { EArticleView } from '../../lib';

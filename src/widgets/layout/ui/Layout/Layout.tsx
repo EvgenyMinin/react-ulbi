@@ -2,8 +2,8 @@ import React, { memo, MutableRefObject, ReactNode, useRef } from 'react';
 
 import cn from 'classnames';
 
-import { LAYOUT_ID } from 'shared/consts';
-import { useInfiniteScroll } from 'shared/hooks';
+import { LAYOUT_ID } from '@/shared/consts';
+import { useInfiniteScroll } from '@/shared/hooks';
 
 import styles from './Layout.module.scss';
 import { useScroll } from '../../hooks';

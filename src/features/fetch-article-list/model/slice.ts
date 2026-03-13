@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { EArticleView, IArticle } from 'entities/article';
+import { EArticleView, IArticle } from '@/entities/article';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { articleListAdapter } from './adapter';
 import { TArticleListState } from '../lib';

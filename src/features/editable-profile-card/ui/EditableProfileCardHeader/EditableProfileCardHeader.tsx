@@ -2,9 +2,9 @@ import React, { memo, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { Button, EButtonTheme, HStack, Text } from 'shared/ui';
+import { Button, EButtonTheme, HStack, Text } from '@/shared/ui';
 
 import { useHeaderActions } from '../../lib/hooks';
 import { profileReadOnly } from '../../model/selectors';

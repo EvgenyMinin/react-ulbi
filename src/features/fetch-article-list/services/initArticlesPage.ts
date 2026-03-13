@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ThunkConfig } from 'app/providers';
+import { ThunkConfig } from '@/app/providers';
 
 import { fetchArticleList } from './fetchArticleList';
 import { fetchArticleListSelectors, fetchArticleListSlice } from '../model';

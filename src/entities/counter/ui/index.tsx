@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from 'app/providers';
+import { useAppDispatch, useAppSelector } from '@/app/providers';
 
-import { Button } from 'shared/ui';
+import { Button } from '@/shared/ui';
 
 import { counterSelectors, counterSlice } from '../model';
 

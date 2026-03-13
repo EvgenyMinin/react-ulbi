@@ -4,9 +4,9 @@ import { render } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 
-import { StoreProvider } from 'app/providers';
+import { StoreProvider } from '@/app/providers';
 
-import i18nForTest from 'shared/config/i18n/i18nForTests';
+import i18nForTest from '@/shared/config/i18n/i18nForTests';
 
 import { INITIAL_ROUTE } from './consts';
 

@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import cn from 'classnames';
 
-import { Skeleton, VStack } from 'shared/ui';
+import { Skeleton, VStack } from '@/shared/ui';
 
 import { useGetNotificationsQuery } from '../../api';
 import { NotificationItem } from '../NotificationItem';

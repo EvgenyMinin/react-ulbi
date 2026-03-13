@@ -1,10 +1,10 @@
 import { Selector, createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from 'app/providers';
+import { RootState } from '@/app/providers';
 
-import { IProfile } from 'entities/profile';
+import { IProfile } from '@/entities/profile';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 import { EValidateProfileError } from '../lib/types';
 

@@ -1,6 +1,6 @@
-import { EArticleView, IArticle } from 'entities/article';
+import { EArticleView, IArticle } from '@/entities/article';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 export type TArticleListState = {
   isLoading: boolean;

@@ -5,9 +5,9 @@ import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
 import { BrowserView, MobileView } from 'react-device-detect';
 
-import { NotificationList } from 'entities/notification';
+import { NotificationList } from '@/entities/notification';
 
-import { Button, Drawer, EButtonTheme, Popover } from 'shared/ui';
+import { Button, Drawer, EButtonTheme, Popover } from '@/shared/ui';
 
 import styles from './NotificationButton.module.scss';
 

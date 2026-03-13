@@ -2,11 +2,11 @@ import { memo } from 'react';
 
 import { useParams } from 'react-router-dom';
 
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 
-import { ArticleDetails } from 'entities/article';
+import { ArticleDetails } from '@/entities/article';
 
-import { VStack } from 'shared/ui';
+import { VStack } from '@/shared/ui';
 
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';

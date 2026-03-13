@@ -1,6 +1,6 @@
-import { TCommentItem } from 'entities/comment';
+import { TCommentItem } from '@/entities/comment';
 
-import { IError } from 'shared/lib';
+import { IError } from '@/shared/lib';
 
 export type TArticleCommentsState = {
   isLoading: boolean;

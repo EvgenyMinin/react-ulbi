@@ -2,10 +2,10 @@ import { Suspense, useEffect } from 'react';
 
 import cn from 'classnames';
 
-import { Navbar } from 'widgets/navbar';
-import { Sidebar } from 'widgets/sidebar';
+import { Navbar } from '@/widgets/navbar';
+import { Sidebar } from '@/widgets/sidebar';
 
-import { userSelectors, userSlice } from 'entities/user';
+import { userSelectors, userSlice } from '@/entities/user';
 
 import { useAppDispatch, useAppSelector } from './providers';
 import { AppRouter } from './providers/router';

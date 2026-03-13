@@ -3,11 +3,11 @@ import { memo } from 'react';
 import CIcon from '@coreui/icons-react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from 'app/providers';
+import { useAppSelector } from '@/app/providers';
 
-import { userSelectors } from 'entities/user';
+import { userSelectors } from '@/entities/user';
 
-import { AppLink, AppLinkTheme } from 'shared/ui';
+import { AppLink, AppLinkTheme } from '@/shared/ui';
 
 import styles from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/items';

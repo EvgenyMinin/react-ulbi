@@ -1,13 +1,13 @@
 import React, { memo, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'app/providers';
+import { useAppDispatch, useAppSelector } from '@/app/providers';
 
 import {
   fetchArticleCommentsSelectors,
   fetchCommentsByArticleId,
-} from 'features/fetch-article-comments';
+} from '@/features/fetch-article-comments';
 
-import { CommentList } from 'entities/comment';
+import { CommentList } from '@/entities/comment';
 
 type TArticleDetailsCommentsProps = {
   id: string;

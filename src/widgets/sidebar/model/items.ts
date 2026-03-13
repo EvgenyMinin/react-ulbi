@@ -1,6 +1,6 @@
 import { cilHome, cilMonitor, cilUser, cilFile } from '@coreui/icons';
 
-import { RoutePath } from 'shared/config';
+import { RoutePath } from '@/shared/config';
 
 export interface SidebarItemType {
   path: string;

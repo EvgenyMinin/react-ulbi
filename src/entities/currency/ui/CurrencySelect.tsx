@@ -2,8 +2,8 @@ import { memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { ECurrency } from 'shared/lib';
-import { ListBox } from 'shared/ui';
+import { ECurrency } from '@/shared/lib';
+import { ListBox } from '@/shared/ui';
 
 import { CURRENCIES } from '../mock';
 

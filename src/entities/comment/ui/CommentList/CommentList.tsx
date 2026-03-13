@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { Text, VStack } from 'shared/ui';
+import { Text, VStack } from '@/shared/ui';
 
 import { TCommentItem } from '../../lib';
 import { CommentCard } from '../CommentCard';

@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, memo } from 'react';
 
 import cn from 'classnames';
 
-import { Mods } from 'shared/lib';
+import { Mods } from '@/shared/lib';
 
 import styles from './styles.module.scss';
 

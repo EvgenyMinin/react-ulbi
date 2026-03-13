@@ -4,9 +4,9 @@ import { cilBorderAll, cilList } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import cn from 'classnames';
 
-import { EArticleView } from 'entities/article';
+import { EArticleView } from '@/entities/article';
 
-import { Button, EButtonTheme } from 'shared/ui';
+import { Button, EButtonTheme } from '@/shared/ui';
 
 import styles from './ArticleViewSelector.module.scss';
 

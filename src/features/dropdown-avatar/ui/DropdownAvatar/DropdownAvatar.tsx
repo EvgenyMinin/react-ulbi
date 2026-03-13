@@ -3,12 +3,12 @@ import React, { memo } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector } from 'app/providers';
+import { useAppDispatch, useAppSelector } from '@/app/providers';
 
-import { userSelectors, userSlice } from 'entities/user';
+import { userSelectors, userSlice } from '@/entities/user';
 
-import { RoutePath } from 'shared/config';
-import { Dropdown } from 'shared/ui';
+import { RoutePath } from '@/shared/config';
+import { Dropdown } from '@/shared/ui';
 
 type TDropdownAvatarProps = {
   className?: string;

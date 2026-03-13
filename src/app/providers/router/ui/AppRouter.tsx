@@ -2,9 +2,9 @@ import { Suspense, useCallback } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { PageLoader } from 'widgets/page-loader';
+import { PageLoader } from '@/widgets/page-loader';
 
-import { routeConfig, TAppRoutesProps } from 'shared/config';
+import { routeConfig, TAppRoutesProps } from '@/shared/config';
 
 import { RequireAuth } from './RequireAuth';
 

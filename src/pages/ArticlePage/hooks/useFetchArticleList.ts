@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
-import { useAppDispatch } from 'app/providers';
+import { useAppDispatch } from '@/app/providers';
 
-import { fetchNextArticleListPage, initArticlesPage } from 'features/fetch-article-list';
+import { fetchNextArticleListPage, initArticlesPage } from '@/features/fetch-article-list';
 
 type TReturnType = {
   onLoadNextPart: () => void;

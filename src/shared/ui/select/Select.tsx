@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useCallback } from 'react';
 
 import cn from 'classnames';
 
-import { TSelectOption } from 'shared/lib';
+import { TSelectOption } from '@/shared/lib';
 
 import styles from './styles.module.scss';
 

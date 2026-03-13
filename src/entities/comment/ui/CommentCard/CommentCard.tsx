@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { Skeleton, Text, VStack } from 'shared/ui';
+import { Skeleton, Text, VStack } from '@/shared/ui';
 
 import styles from './CommentCard.module.scss';
 import { TCommentItem } from '../../lib';
