@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import { useTheme } from '@/app/providers/ThemeProvider';
 
-import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg?react';
 import { Button, EButtonTheme } from '@/shared/ui';
 
 import styles from './styles.module.scss';
