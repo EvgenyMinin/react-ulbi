@@ -24,11 +24,11 @@ export const Dropdown = memo((props: TDropdownProps) => {
   return (
     <Menu as='div' className={cn('', {}, [className])}>
       <MenuButton as={Fragment}>
-        {({ active }) => <button className={styles.button}>{trigger}</button>}
+        {() => <button className={styles.button}>{trigger}</button>}
       </MenuButton>
       <MenuItems anchor='bottom' className={styles.menu}>
-        {items.map(item => (
-          <MenuItem key={item.href} as={Fragment} disabled={item.disabled}>
+        {items.map((item, i) => (
+          <MenuItem key={i} as={Fragment} disabled={item.disabled}>
             {({ focus }) => (
               <a
                 className={cn(styles.link, { [styles.focus]: focus })}
