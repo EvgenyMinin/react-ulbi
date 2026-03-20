@@ -6,8 +6,11 @@
     "backToList": "Back to list",
     "more": "More",
     "edit": "Edit",
-    "create": "Create new article"
+    "create": "Create new article",
+    "close": "Close",
+    "send": "Send"
   },
   "editPageTitle": "Edit article",
-  "createPageTitle": "Create new article"
+  "createPageTitle": "Create new article",
+  "review": "Your review"
 }
