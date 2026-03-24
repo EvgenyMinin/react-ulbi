@@ -18,8 +18,6 @@ import {
   VStack,
 } from '@/shared/ui';
 
-import styles from './Rating.module.scss';
-
 type TRatingProps = {
   title?: string;
   feedbackTitle?: string;
@@ -68,7 +66,7 @@ export const Rating = memo((props: TRatingProps) => {
   );
 
   return (
-    <Card className={cn(styles.rating, {}, [className])}>
+    <Card className={cn('', {}, [className])}>
       <VStack gap={8} align='center'>
         <Text title={title} />
 
