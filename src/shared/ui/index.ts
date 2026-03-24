@@ -17,3 +17,4 @@ export * from './Dropdown';
 export * from './Popover';
 export * from './Overlay';
 export * from './Drawer';
+export * from './StarRating';
