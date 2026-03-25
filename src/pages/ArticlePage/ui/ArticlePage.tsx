@@ -7,8 +7,6 @@ import { Layout } from '@/widgets/layout';
 
 import { ArticleViewSelector } from '@/features/fetch-article-list';
 
-import { Rating } from '@/entities/rating';
-
 import { RoutePath } from '@/shared/config';
 import { Button, EButtonTheme, HStack, VStack } from '@/shared/ui';
 
@@ -29,7 +27,6 @@ const ArticlePage = () => {
 
   return (
     <Layout onScrollEnd={onLoadNextPart}>
-      <Rating title='Как вам статья?' feedbackTitle='Оставте ваш отзыв о статье' hasFeedback />
       <VStack gap={16}>
         <HStack align='center' justify='between'>
           <Button theme={EButtonTheme.OUTLINE} onClick={onCreateArticle}>

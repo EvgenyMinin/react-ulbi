@@ -23,16 +23,17 @@ type TRatingProps = {
   feedbackTitle?: string;
   hasFeedback?: boolean;
   className?: string;
+  rate?: number;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback?: string) => void;
 };
 
 export const Rating = memo((props: TRatingProps) => {
-  const { title, feedbackTitle, hasFeedback, onAccept, onCancel, className } = props;
+  const { title, feedbackTitle, hasFeedback, rate = 0, onAccept, onCancel, className } = props;
 
   const { t } = useTranslation('article');
   const [showModal, setShowModal] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
   const onSelectStars = useCallback(
@@ -68,9 +69,9 @@ export const Rating = memo((props: TRatingProps) => {
   return (
     <Card className={cn('', {}, [className])}>
       <VStack gap={8} align='center'>
-        <Text title={title} />
+        <Text title={starsCount ? t('thnxReview') : title} />
 
-        <StarRating size={40} onSelect={onSelectStars} />
+        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
 
         <BrowserView>
           <Modal isOpen={showModal} lazy onClose={cancelHandler}>

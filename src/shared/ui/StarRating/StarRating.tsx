@@ -20,7 +20,7 @@ const stars = [1, 2, 3, 4, 5];
 export const StarRating = memo((props: TStarRatingProps) => {
   const { size = 20, selectedStars = 0, onSelect, className } = props;
 
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setSelected] = useState(Boolean(selectedStars));
 
   const mods: Mods = {
