@@ -12,5 +12,8 @@
   },
   "editPageTitle": "Edit article",
   "createPageTitle": "Create new article",
-  "review": "Your review"
+  "review": "Your review",
+  "articleReview": "Review article",
+  "reviewFeedback": "Leave your feedback on the article — it will help improve the quality.",
+  "thnxReview": "Thanks for review!"
 }
