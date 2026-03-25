@@ -7,6 +7,7 @@ import {
   ThemeDecorator,
   TranslationDecorator,
   SuspenseDecorator,
+  StoreDecorator,
 } from '../../src/shared/config/storybook';
 
 const preview: Preview = {
@@ -23,6 +24,7 @@ const preview: Preview = {
     StyleDecorator,
     TranslationDecorator,
     ThemeDecorator(ETheme.LIGHT),
+    StoreDecorator,
     RouterDecorator,
     SuspenseDecorator,
   ],
