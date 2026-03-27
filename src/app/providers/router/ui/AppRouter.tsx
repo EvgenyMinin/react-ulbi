@@ -4,9 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import { PageLoader } from '@/widgets/page-loader';
 
-import { routeConfig, TAppRoutesProps } from '@/shared/config';
-
 import { RequireAuth } from './RequireAuth';
+import { routeConfig, TAppRoutesProps } from '../config/routeConfig';
 
 export const AppRouter = () => {
   const renderWithWrapper = useCallback((route: TAppRoutesProps) => {
