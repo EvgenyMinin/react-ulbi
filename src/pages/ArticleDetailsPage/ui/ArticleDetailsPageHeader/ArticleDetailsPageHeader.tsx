@@ -8,7 +8,7 @@ import { useAppSelector } from '@/app/providers';
 
 import { articleDetailsSelectors } from '@/entities/article';
 
-import { RoutePath } from '@/shared/config';
+import { RoutePath } from '@/shared/consts';
 import { Button } from '@/shared/ui';
 
 import styles from './ArticleDetailsPageHeader.module.scss';

@@ -6,7 +6,7 @@ import { useAppSelector } from '@/app/providers';
 
 import { EUserRole, userSelectors } from '@/entities/user';
 
-import { RoutePath } from '@/shared/config';
+import { RoutePath } from '@/shared/consts';
 
 type TRequireAuthProps = {
   children: JSX.Element;

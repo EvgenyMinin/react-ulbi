@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/app/providers';
 
 import { userSelectors, userSlice } from '@/entities/user';
 
-import { RoutePath } from '@/shared/config';
+import { RoutePath } from '@/shared/consts';
 import { Dropdown } from '@/shared/ui';
 
 type TDropdownAvatarProps = {
