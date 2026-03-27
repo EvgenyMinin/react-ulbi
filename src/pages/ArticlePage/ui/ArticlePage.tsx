@@ -7,7 +7,7 @@ import { Layout } from '@/widgets/layout';
 
 import { ArticleViewSelector } from '@/features/fetch-article-list';
 
-import { RoutePath } from '@/shared/config';
+import { RoutePath } from '@/shared/consts';
 import { Button, EButtonTheme, HStack, VStack } from '@/shared/ui';
 
 import { ArticleInfiniteList } from './ArticleInfiniteList';

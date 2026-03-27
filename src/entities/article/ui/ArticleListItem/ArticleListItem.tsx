@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { RoutePath } from '@/shared/config';
+import { RoutePath } from '@/shared/consts';
 import { useHover } from '@/shared/hooks';
 import { Button, Card, HStack, Text } from '@/shared/ui';
 
