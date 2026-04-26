@@ -14,23 +14,20 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] {
+  const isProd = !isDev;
+
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
 
     new ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
+
     new DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
       API: JSON.stringify(apiUrl),
     }),
-    new CopyPlugin({
-      patterns: [{ from: paths.locales, to: paths.buildLocales }],
-    }),
+
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         diagnosticOptions: {
@@ -48,6 +45,21 @@ export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPlu
     plugins.push(
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
+      })
+    );
+  }
+
+  if (isProd) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      })
+    );
+
+    plugins.push(
+      new CopyPlugin({
+        patterns: [{ from: paths.locales, to: paths.buildLocales }],
       })
     );
   }
