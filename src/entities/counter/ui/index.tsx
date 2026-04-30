@@ -1,18 +1,17 @@
-import { useAppDispatch, useAppSelector } from '@/app/providers';
-
 import { Button } from '@/shared/ui';
 
-import { counterSelectors, counterSlice } from '../model';
+import { counterSelectors } from '../model';
+import { useCounterActions } from '../model/slice';
 
 export const Counter = () => {
-  const dispatch = useAppDispatch();
-  const counterValue = useAppSelector(counterSelectors.getCounterValue);
+  const counterValue = counterSelectors.useCounterValue();
+  const { decrement, increment } = useCounterActions();
 
   const handleIncrement = () => {
-    dispatch(counterSlice.counterActions.increment());
+    increment();
   };
   const handleDecrement = () => {
-    dispatch(counterSlice.counterActions.decrement());
+    decrement();
   };
 
   return (

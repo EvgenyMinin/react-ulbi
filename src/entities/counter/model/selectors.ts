@@ -1,11 +1,5 @@
-import { createSelector } from '@reduxjs/toolkit';
-import { Selector } from 'react-redux';
+import { buildSelector } from '@/shared/lib';
 
-import { RootState } from '@/app/providers';
-
-export const getCounter = (state: RootState) => state.entities.counter;
-
-export const getCounterValue: Selector<RootState, number> = createSelector(
-  getCounter,
-  ({ value }) => value
+export const [useCounterValue, getCounterValue] = buildSelector(
+  state => state.entities.counter.value
 );
