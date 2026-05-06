@@ -18,3 +18,4 @@ export * from './Popover';
 export * from './Overlay';
 export * from './Drawer';
 export * from './StarRating';
+export * from './AppImage';
