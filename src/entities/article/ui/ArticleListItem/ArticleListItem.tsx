@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { RoutePath } from '@/shared/consts';
 import { useHover } from '@/shared/hooks';
-import { Button, Card, HStack, Text } from '@/shared/ui';
+import { AppImage, Button, Card, HStack, Skeleton, Text } from '@/shared/ui';
 
 import styles from './ArticleListItem.module.scss';
 import { EArticleView, IArticle } from '../../lib';
@@ -58,7 +58,12 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
     <div {...bindHover} className={cn('', {}, [className, styles[view]])}>
       <Card className={styles.card} onClick={useOpenArticle}>
         <div className={styles.imageWrapper}>
-          <img src={article.img} alt={article.title} className={styles.image} />
+          <AppImage
+            fallback={<Skeleton width='100%' height={250} />}
+            src={article.img}
+            alt={article.title}
+            className={styles.image}
+          />
           <Text text={article.createdAt} className={styles.date} />
         </div>
         <HStack justify='between' gap={4}>
