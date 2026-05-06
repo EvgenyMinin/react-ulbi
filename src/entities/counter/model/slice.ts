@@ -1,6 +1,4 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-
-import { buildSlice } from '@/shared/lib';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { ICounterSchema } from '../lib';
 
@@ -8,7 +6,7 @@ export const initialState: ICounterSchema = {
   value: 0,
 };
 
-const counterSlice = buildSlice({
+const counterSlice = createSlice({
   name: 'counter',
   initialState,
 
@@ -16,17 +14,10 @@ const counterSlice = buildSlice({
     increment: state => {
       state.value += 1;
     },
-    add: (state, { payload }: PayloadAction<number>) => {
-      state.value += payload;
-    },
     decrement: state => {
       state.value -= 1;
     },
   },
 });
 
-export const {
-  actions: counterActions,
-  reducer: counterReducer,
-  useActions: useCounterActions,
-} = counterSlice;
+export const { actions: counterActions, reducer: counterReducer } = counterSlice;
