@@ -5,7 +5,6 @@ module.exports = {
   extends: [
     'airbnb-base',
     'airbnb-typescript',
-    'airbnb-typescript',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
@@ -23,6 +22,19 @@ module.exports = {
   overrides: [
     {
       files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+    {
+      files: ['cypress/**/*.{ts,tsx}', 'cypress.config.ts'],
+      parserOptions: {
+        project: './cypress/tsconfig.json',
+      },
+      env: {
+        'cypress/globals': true,
+      },
+      plugins: ['cypress'],
       rules: {
         'i18next/no-literal-string': 'off',
       },
