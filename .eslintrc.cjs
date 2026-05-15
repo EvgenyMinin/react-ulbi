@@ -9,10 +9,9 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
-    'prettier'
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -77,15 +76,10 @@ module.exports = {
     ],
     'react/display-name': 'off',
     'import/extensions': 'off',
-    'max-len': [
-      'error',
-      {
-        code: 100,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreComments: true,
-      },
-    ],
+    'max-len': 'off',
+    'react/jsx-max-props-per-line': 'off',
+    'react/jsx-first-prop-new-line': 'off',
+    'react/jsx-wrap-multilines': 'off',
     'no-plusplus': [
       'error',
       {

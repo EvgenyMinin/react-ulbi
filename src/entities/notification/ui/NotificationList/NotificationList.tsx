@@ -29,7 +29,7 @@ export const NotificationList = memo((props: TNotificationListProps) => {
 
   return (
     <VStack gap={8} className={cn('', {}, [className])}>
-      {data?.map(item => <NotificationItem key={item.id} item={item} />)}
+      {/* prettier-ignore */ data?.map(item => <NotificationItem key={item.id} item={item} />)}
     </VStack>
   );
 });
