@@ -13,7 +13,9 @@ type TNotificationListProps = {
 
 export const NotificationList = memo((props: TNotificationListProps) => {
   const { className } = props;
-  const { isLoading, data } = useGetNotificationsQuery(null, { pollingInterval: 10000 });
+  const { isLoading, data } = useGetNotificationsQuery(null, {
+    pollingInterval: 10000,
+  });
 
   if (isLoading) {
     return (

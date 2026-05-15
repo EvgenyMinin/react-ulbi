@@ -1,4 +1,4 @@
-import { USER_LOCAL_STORAGE_KEY } from '../../../src/shared/consts/localStorage';
+import { USER_LOCAL_STORAGE_KEY } from '../../../src/shared/consts';
 
 export const login = (username: string, password: string) => {
   cy.log(`Logging in as ${username}`);
@@ -6,7 +6,7 @@ export const login = (username: string, password: string) => {
   cy.env(['AUTH0_CLIENT_SECRET']).then(() => {
     cy.request({
       method: 'POST',
-      url: `http://localhost:8000/login`,
+      url: 'http://localhost:8000/login',
       body: {
         grant_type: 'password',
         username,
