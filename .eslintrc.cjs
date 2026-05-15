@@ -31,9 +31,6 @@ module.exports = {
       parserOptions: {
         project: './cypress/tsconfig.json',
       },
-      env: {
-        'cypress/globals': true,
-      },
       plugins: ['cypress'],
       rules: {
         'i18next/no-literal-string': 'off',
