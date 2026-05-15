@@ -7,5 +7,9 @@ import styles from './styles.module.scss';
 export const NotFound = () => {
   const { t } = useTranslation('not-found');
 
-  return <Layout className={styles.container}>{t('notFoundPage')}</Layout>;
+  return (
+    <Layout className={styles.container} dataTestId='NotFoundPage'>
+      {t('notFoundPage')}
+    </Layout>
+  );
 };

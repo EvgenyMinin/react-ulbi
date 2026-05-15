@@ -5,14 +5,13 @@ module.exports = {
   extends: [
     'airbnb-base',
     'airbnb-typescript',
-    'airbnb-typescript',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -23,6 +22,16 @@ module.exports = {
   overrides: [
     {
       files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+    {
+      files: ['cypress/**/*.{ts,tsx}', 'cypress.config.ts'],
+      parserOptions: {
+        project: './cypress/tsconfig.json',
+      },
+      plugins: ['cypress'],
       rules: {
         'i18next/no-literal-string': 'off',
       },
@@ -67,15 +76,10 @@ module.exports = {
     ],
     'react/display-name': 'off',
     'import/extensions': 'off',
-    'max-len': [
-      'error',
-      {
-        code: 100,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreComments: true,
-      },
-    ],
+    'max-len': 'off',
+    'react/jsx-max-props-per-line': 'off',
+    'react/jsx-first-prop-new-line': 'off',
+    'react/jsx-wrap-multilines': 'off',
     'no-plusplus': [
       'error',
       {

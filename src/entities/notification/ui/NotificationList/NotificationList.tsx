@@ -13,7 +13,9 @@ type TNotificationListProps = {
 
 export const NotificationList = memo((props: TNotificationListProps) => {
   const { className } = props;
-  const { isLoading, data } = useGetNotificationsQuery(null, { pollingInterval: 10000 });
+  const { isLoading, data } = useGetNotificationsQuery(null, {
+    pollingInterval: 10000,
+  });
 
   if (isLoading) {
     return (
@@ -27,7 +29,7 @@ export const NotificationList = memo((props: TNotificationListProps) => {
 
   return (
     <VStack gap={8} className={cn('', {}, [className])}>
-      {data?.map(item => <NotificationItem key={item.id} item={item} />)}
+      {/* prettier-ignore */ data?.map(item => <NotificationItem key={item.id} item={item} />)}
     </VStack>
   );
 });

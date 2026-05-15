@@ -26,7 +26,7 @@ const ArticlePage = () => {
   }, [navigate]);
 
   return (
-    <Layout onScrollEnd={onLoadNextPart}>
+    <Layout onScrollEnd={onLoadNextPart} dataTestId='ArticleListPage'>
       <VStack gap={16}>
         <HStack align='center' justify='between'>
           <Button theme={EButtonTheme.OUTLINE} onClick={onCreateArticle}>

@@ -2,7 +2,6 @@ import React, { memo, MutableRefObject, ReactNode, useRef } from 'react';
 
 import cn from 'classnames';
 
-import { LAYOUT_ID } from '@/shared/consts';
 import { useInfiniteScroll } from '@/shared/hooks';
 
 import styles from './Layout.module.scss';
@@ -10,12 +9,13 @@ import { useScroll } from '../../hooks';
 
 type TLayoutProps = {
   children: ReactNode;
+  dataTestId?: string;
   className?: string;
   onScrollEnd?: () => void;
 };
 
 export const Layout = memo((props: TLayoutProps) => {
-  const { children, className, onScrollEnd } = props;
+  const { children, dataTestId, className, onScrollEnd } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -28,7 +28,7 @@ export const Layout = memo((props: TLayoutProps) => {
       onScroll={onScroll}
       ref={wrapperRef}
       className={cn(styles.layout, {}, [className])}
-      id={LAYOUT_ID}
+      data-testId={dataTestId}
     >
       {children}
       {onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}

@@ -6,7 +6,7 @@ import { EditableProfileCard } from '@/features/editable-profile-card';
 
 const ProfilePage = () => {
   return (
-    <Layout>
+    <Layout dataTestId='ProfilePage'>
       <EditableProfileCard />
     </Layout>
   );
