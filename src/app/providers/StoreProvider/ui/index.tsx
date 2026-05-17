@@ -8,6 +8,6 @@ type StoreProviderProps = {
   children?: ReactNode;
 };
 
-export const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
-  return <Provider store={store}>{children}</Provider>;
-};
+export const StoreProvider: FC<StoreProviderProps> = ({ children }) => (
+  <Provider store={store}>{children}</Provider>
+);

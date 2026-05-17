@@ -11,7 +11,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -43,8 +43,6 @@ module.exports = {
     quotes: ['error', 'single'],
     'no-console': 'error',
     'object-curly-spacing': ['error', 'always'],
-    'max-lines': ['error', 200],
-    'max-depth': ['error', 4],
     'import/no-extraneous-dependencies': [
       'error',
       { devDependencies: true, optionalDependencies: false, peerDependencies: false },
@@ -76,9 +74,6 @@ module.exports = {
     ],
     'react/display-name': 'off',
     'import/extensions': 'off',
-    'max-len': 'off',
-    'react/jsx-max-props-per-line': 'off',
-    'react/jsx-first-prop-new-line': 'off',
     'react/jsx-wrap-multilines': 'off',
     'no-plusplus': [
       'error',

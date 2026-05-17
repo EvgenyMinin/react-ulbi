@@ -2,8 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { BuildOptions } from '../types/config';
 
-export const buildCssLoader = ({ isDev }: BuildOptions) => {
-  return {
+export const buildCssLoader = ({ isDev }: BuildOptions) => ({
     test: /\.s[ac]ss$/i,
     exclude: /node_modules/,
     use: [
@@ -19,5 +18,4 @@ export const buildCssLoader = ({ isDev }: BuildOptions) => {
       },
       'sass-loader',
     ],
-  };
-};
+  });
