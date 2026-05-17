@@ -14,12 +14,10 @@ interface ITextProps {
 }
 
 export const Text = memo(
-  ({ title, text, className, theme = ETextTheme.PRIMARY, align = ETextAlign.LEFT }: ITextProps) => {
-    return (
-      <div className={cn(styles.text, {}, [className, styles[theme], styles[align]])}>
-        {title && <p className={styles.title}>{title}</p>}
-        {text && <p className={styles.text}>{text}</p>}
-      </div>
-    );
-  }
+  ({ title, text, className, theme = ETextTheme.PRIMARY, align = ETextAlign.LEFT }: ITextProps) => (
+    <div className={cn(styles.text, {}, [className, styles[theme], styles[align]])}>
+      {title && <p className={styles.title}>{title}</p>}
+      {text && <p className={styles.text}>{text}</p>}
+    </div>
+  )
 );

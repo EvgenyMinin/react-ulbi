@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
     "outDir": "./dist/",
     "noImplicitAny": true,
@@ -13,13 +13,13 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
-      "moduleResolution": "node",
-    },
+      "moduleResolution": "node"
+    }
   },
-  "include": ["src", "config", "jest.config.ts", "scripts", "webpack.config.ts", "vite.config.ts"],
+  "include": ["src", "config", "jest.config.ts", "scripts", "webpack.config.ts", "vite.config.ts"]
 }

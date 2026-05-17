@@ -9,10 +9,8 @@ type LoginModalProps = {
   onClose: () => void;
 };
 
-export const LoginModal: FC<LoginModalProps> = ({ isOpen, onClose }) => {
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} lazy>
-      <LoginForm onSuccess={onClose} />
-    </Modal>
-  );
-};
+export const LoginModal: FC<LoginModalProps> = ({ isOpen, onClose }) => (
+  <Modal isOpen={isOpen} onClose={onClose} lazy>
+    <LoginForm onSuccess={onClose} />
+  </Modal>
+);
